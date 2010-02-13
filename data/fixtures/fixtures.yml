@@ -1,17 +1,39 @@
-# # Populate this file with data to be loaded by your ORM's *:data-load task.
-# # You can create multiple files in this directory (i.e. 010_users.yml,
-# # 020_articles.yml, etc) which will be loaded in alphabetical order.
-# # 
-# # See documentation for your ORM's *:data-load task for more information.
-# 
-# User:
-#   fabien:
-#     username: fabien
-#     password: changeme
-#     name:     Fabien Potencier
-#     email:    fabien.potencier@symfony-project.com
-#   kris:
-#     username: Kris.Wallsmith
-#     password: changeme
-#     name:     Kris Wallsmith
-#     email:    kris.wallsmith@symfony-project.com
+Author:
+  sjoerd:
+    name: Sjoerd de Jong
+  amit:
+    name: Amit Rana
+  amal:
+    name: Amal RS
+    
+Question:
+  install:
+    Author: amit
+    question: |
+      How to install Symfony?
+    Tags: [install, symfony]
+  linux:
+    Author: amal
+    question: How to install on Linux?
+#    Related: [install]
+      
+Tag:
+  install:
+    name: install
+  symfony:
+    name: symfony
+  sfuser:
+    name: sfUser
+    
+Answer:
+  install1:
+    Question: install
+    Author: sjoerd
+    answer: RTFM at http://www.symfony-project.org/install
+  install2:
+    Question: install
+    Author: amal
+    comment: Changed the answer into a friendly one, please no flaming here!
+    answer: |
+      There's a nice manual at http://www.symfony-project.org/installation/1_4
+    

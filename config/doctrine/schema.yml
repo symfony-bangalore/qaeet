@@ -1,0 +1,74 @@
+Author:
+  columns:
+    name: string(255)
+  
+Question:
+  actAs:
+    Timestampable: ~
+  columns:
+    question: string
+    best_id: integer
+    branch_id: integer
+    author_id: integer
+  relations:
+    BestAnswer:
+      class: Answer
+      local: best_id
+      foreignType:  one
+    BranchedAnswer:
+      class: Answer
+      local: branch_id
+      foreignType:  one
+    Related:
+      class: Question
+      refClass: QuestionRelation
+      local: from_id
+      foreign: to_id
+      equal: true
+    Author:
+      foreignAlias: Questions
+    Tags:
+      class:        Tag
+      refClass:     QuestionTag
+      local:        question_id
+      foreign:      tag_id
+      foreignAlias: Questions
+      
+Answer:
+  actAs:
+    Timestampable: ~
+  columns:
+    author_id: integer
+    question_id: integer
+    comment: string
+    answer: string
+    question: string
+  relations:
+    Author:
+      foreignAlias: Questions
+    Question:
+      foreignAlias: Answers 
+
+QuestionRelation:
+  columns:
+    from_id:
+      type: integer
+      primary: true
+    to_id:
+      type: integer
+      primary: true
+
+QuestionTag:
+  columns:
+    question_id:
+      type: integer
+      primary: true
+    tag_id:
+      type: integer
+      primary: true
+  
+Tag:
+  columns:
+    name:
+      type: string(255)
+      unique: true

@@ -1,0 +1,17 @@
+body
+{
+  background: #aaa;
+}
+
+table.answer
+{
+  border: 1px solid black;
+  padding: 5px;
+  margin: 5px;
+}
+
+table.best_answer
+{
+  border-style: dotted;
+  border-color: red;
+}
