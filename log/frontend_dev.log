@@ -1,0 +1,28 @@
+Feb 13 05:45:58 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Feb 13 05:45:58 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 13 05:45:58 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 13 05:45:58 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Feb 13 05:45:59 symfony [info] {sfPHPView} Render "C:\weett\lib\symfony\1.4\lib/controller/default/templates/indexSuccess.php"
+Feb 13 05:45:59 symfony [info] {sfPHPView} Decorate content with "C:\weett\lib\symfony\1.4\lib\controller\default\templates/defaultLayout.php"
+Feb 13 05:45:59 symfony [info] {sfPHPView} Render "C:\weett\lib\symfony\1.4\lib\controller\default\templates/defaultLayout.php"
+Feb 13 05:45:59 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 13 05:45:59 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 13 05:45:59 symfony [info] {sfWebDebugLogger} Configuration 1567.11 ms (9)
+Feb 13 05:45:59 symfony [info] {sfWebDebugLogger} Factories 1130.23 ms (1)
+Feb 13 05:45:59 symfony [info] {sfWebDebugLogger} Action "default/index" 2.21 ms (1)
+Feb 13 05:45:59 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 204.70 ms (1)
+Feb 13 05:45:59 symfony [info] {sfWebResponse} Send content (29152 o)
+Feb 13 05:47:03 symfony [info] {sfPatternRouting} Match route "homepage" (/) for / with parameters array (  'module' => 'default',  'action' => 'index',)
+Feb 13 05:47:03 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 13 05:47:03 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 13 05:47:03 symfony [info] {defaultActions} Call "defaultActions->executeIndex()"
+Feb 13 05:47:03 symfony [info] {sfPHPView} Render "C:\weett\lib\symfony\1.4\lib/controller/default/templates/indexSuccess.php"
+Feb 13 05:47:03 symfony [info] {sfPHPView} Decorate content with "C:\weett\lib\symfony\1.4\lib\controller\default\templates/defaultLayout.php"
+Feb 13 05:47:03 symfony [info] {sfPHPView} Render "C:\weett\lib\symfony\1.4\lib\controller\default\templates/defaultLayout.php"
+Feb 13 05:47:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 13 05:47:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 13 05:47:03 symfony [info] {sfWebDebugLogger} Configuration 31.01 ms (9)
+Feb 13 05:47:03 symfony [info] {sfWebDebugLogger} Factories 156.71 ms (1)
+Feb 13 05:47:03 symfony [info] {sfWebDebugLogger} Action "default/index" 1.43 ms (1)
+Feb 13 05:47:03 symfony [info] {sfWebDebugLogger} View "Success" for "default/index" 55.79 ms (1)
+Feb 13 05:47:03 symfony [info] {sfWebResponse} Send content (29179 o)
