@@ -5,7 +5,7 @@ $t = new lime_test(1, new lime_output_color());
 
 $t->comment('Testing extract tags');
 
-$t->is(Toolkit::extractTags('#tag #foo #bar #foo #foo #bar'), 
+$t->is(Toolkit::extractTags('#tag #Foo #bar #foo #Foo #bar'), 
   array(
     'tag'=>1, 
     'foo'=>3, 

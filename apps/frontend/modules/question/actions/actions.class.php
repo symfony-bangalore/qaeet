@@ -73,7 +73,7 @@ class questionActions extends sfActions
     {
       $question = $form->save();
 
-      $this->redirect('question/edit?id='.$question->getId());
+      $this->redirect('question/show?id='.$question->getId());
     }
   }
 }

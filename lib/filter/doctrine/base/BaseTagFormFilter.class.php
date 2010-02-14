@@ -14,11 +14,13 @@ abstract class BaseTagFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'name'           => new sfWidgetFormFilterInput(),
+      'slug'           => new sfWidgetFormFilterInput(),
       'questions_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Question')),
     ));
 
     $this->setValidators(array(
       'name'           => new sfValidatorPass(array('required' => false)),
+      'slug'           => new sfValidatorPass(array('required' => false)),
       'questions_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Question', 'required' => false)),
     ));
 
@@ -57,6 +59,7 @@ abstract class BaseTagFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'             => 'Number',
       'name'           => 'Text',
+      'slug'           => 'Text',
       'questions_list' => 'ManyKey',
     );
   }

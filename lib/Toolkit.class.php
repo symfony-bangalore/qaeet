@@ -15,7 +15,8 @@ class Toolkit
   {
     $tags = array();
     preg_match_all('/\#(\w+)/', $text, $tags);
-    $tags = isset($tags[1]) ? $tags[1] : array();    
+    $tags = isset($tags[1]) ? $tags[1] : array();
+    $tags = array_map('strtolower', $tags);
     return array_count_values($tags);
   }
 

@@ -17,17 +17,22 @@ abstract class BaseTagForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'             => new sfWidgetFormInputHidden(),
       'name'           => new sfWidgetFormInputText(),
+      'slug'           => new sfWidgetFormInputText(),
       'questions_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Question')),
     ));
 
     $this->setValidators(array(
       'id'             => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
       'name'           => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'slug'           => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'questions_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Question', 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(
-      new sfValidatorDoctrineUnique(array('model' => 'Tag', 'column' => array('name')))
+      new sfValidatorAnd(array(
+        new sfValidatorDoctrineUnique(array('model' => 'Tag', 'column' => array('name'))),
+        new sfValidatorDoctrineUnique(array('model' => 'Tag', 'column' => array('slug'))),
+      ))
     );
 
     $this->widgetSchema->setNameFormat('tag[%s]');

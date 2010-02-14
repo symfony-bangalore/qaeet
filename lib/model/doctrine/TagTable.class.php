@@ -2,49 +2,38 @@
 
 class TagTable extends Doctrine_Table
 {
-  public function getCloud()
+  /**
+   * returns an array of alphabetically sorted names, logarithmically sized within boundaries $lowest-$highest
+   *
+   * @return array key=tagname, value=array(slug, size)
+   * @author The Young Shepherd
+   **/
+  public function getCloud($limit = 50, $lowest = 1, $highest = 2)
   {
     $tags = Doctrine_Query::create()
-      ->select('t.name, COUNT(q.question_id) as num')
+      ->distinct()
+      ->select('t.slug, t.name, count(q.id) as num')
       ->from('Tag t')
-      ->innerJoin(('t.QuestionTags q'))
+      ->innerJoin(('t.Questions q'))
       ->orderBy('num DESC')
-      ->limit(100)
+      ->groupBy('t.name')
+      ->limit($limit)
       ->fetchArray();
-    return $tags;
-  }
-  
-  public function findOrCreateByName(array $names)
-  {
-    if (count($names) > 0)
+      
+    $max = log($tags[0]['num']);
+    $min = log($tags[count($tags)-1]['num'])-0.00001;
+    
+    $result = array();
+    foreach ($tags as $tag)
     {
-      $tags = Doctrine_Query::create()
-        ->from('Tag t')
-        ->whereIn('t.name', $names)
-        ->execute();
-      
-      foreach ($tags as $tag)
-      {
-        $key = array_search($tag->name, $names);
-        if ($key !== false)
-        {
-          unset($names[$tag->name]);
-        }
-      }
-      
-      
-      foreach ($names as $name)
-      {
-        $tag = new Tag();
-        $tag->name = $name;
-        $tags->add($tag);
-      }
-    }
-    else
-    {
-      $tags = new Doctrine_Collection($this);
+      $num = log($tag['num']);
+      $fraction = ($num-$min)/($max-$min);
+      $size = $lowest+$fraction*($highest - $lowest);
+      $result[$tag['name']] = array($tag['slug'], $size);
     }
     
-    return $tags;
-  }
+    ksort($result);
+    
+    return $result;
+  }  
 }

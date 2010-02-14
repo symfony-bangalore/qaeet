@@ -26,19 +26,42 @@ class Question extends BaseQuestion
   }
   
   /**
-   * extracts tags from the provided text and connects them
+   * extracts tags from the provided text and connects them to this question. If a tag is deleted it
+   * will be deleted from the relation
    *
    * @return void
    * @author The Young Shepherd
    **/
   public function setQuestion($text)
   {
-    $names = array_keys(Toolkit::extractTags($text));
-    if (count($names) > 0)
+    $oldTags = array_keys(Toolkit::extractTags($this->question));
+    $newTags = array_keys(Toolkit::extractTags($text));
+    
+    $addTags =    array_diff($newTags, $oldTags);
+    $deleteTags = array_diff($oldTags, $newTags);
+    
+    foreach ($deleteTags as $name)
     {
-      $tags = Doctrine::getTable('Tag')->findOrCreateByName($names);
-      $this->Tags->merge($tags);
+      foreach ($this->Tags as $index => $tag)
+      {
+        if ($tag->name === $name)
+        {
+          unset($this->Tags[$index]);
+          break; // go to next name to delete
+        }
+      }
     }
+
+    foreach ($addTags as $name)
+    {
+      if (!$tag = Doctrine::getTable('Tag')->findOneByName($name))
+      {
+        $tag = new Tag();
+        $tag->name = $name;
+      }
+      $this->Tags[] = $tag;
+    }
+
     return $this->_set('question', $text);
   }
   

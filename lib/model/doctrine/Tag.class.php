@@ -19,6 +19,6 @@ class Tag extends BaseTag
   
   public function setName($name)
   {
-    return $this->_set(strtolower($name));
+    return $this->_set('name', strtolower($name));
   }
 }

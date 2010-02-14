@@ -37,5 +37,14 @@ abstract class BaseTag extends sfDoctrineRecord
              'refClass' => 'QuestionTag',
              'local' => 'tag_id',
              'foreign' => 'question_id'));
+
+        $sluggable0 = new Doctrine_Template_Sluggable(array(
+             'unique' => true,
+             'fields' => 
+             array(
+              0 => 'name',
+             ),
+             ));
+        $this->actAs($sluggable0);
     }
 }

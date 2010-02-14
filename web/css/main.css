@@ -35,3 +35,7 @@ div.answer
 h1 {
   font-size:2.5em;
 }
+
+ul.tagcloud { padding: 2px; line-height: 125%; text-align: center; margin: 0; }
+ul.tagcloud a { padding: 0px; }
+ul.tagcloud li { display: inline; }

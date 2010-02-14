@@ -22,8 +22,6 @@ on <?php echo $question->BestAnswer->getDateTimeObject('created_at')->format('m/
 </ul>
 <hr />
 
-<?php echo "<pre>".var_dump(Doctrine::getTable('Tag')->getCloud(),true)."</pre>" ?>
-
 <ul>
 <?php foreach ($question->Answers as $answer): ?>
   <li class='answer'>
