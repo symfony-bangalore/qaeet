@@ -25,6 +25,23 @@ class Question extends BaseQuestion
     return implode("\n", $lines);
   }
   
+  /**
+   * extracts tags from the provided text and connects them
+   *
+   * @return void
+   * @author The Young Shepherd
+   **/
+  public function setQuestion($text)
+  {
+    $names = array_keys(Toolkit::extractTags($text));
+    if (count($names) > 0)
+    {
+      $tags = Doctrine::getTable('Tag')->findOrCreateByName($names);
+      $this->Tags->merge($tags);
+    }
+    return $this->_set('question', $text);
+  }
+  
   public function __toString()
   {
     return $this->getTitle();

@@ -11,11 +11,11 @@ Question:
     Author: amit
     question: |
       How to install Symfony?
+      I don't know how to #put #sf on my #machine...
     Tags: [install, symfony]
   linux:
     Author: amal
     question: How to install on Linux?
-#    Related: [install]
       
 Tag:
   install:

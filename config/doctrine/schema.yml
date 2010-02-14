@@ -73,6 +73,10 @@ QuestionTag:
       primary: true
   
 Tag:
+  actAs:
+    Sluggable:
+      unique: true
+      fields: [name]
   columns:
     name:
       type: string(255)

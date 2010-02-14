@@ -11,7 +11,7 @@
   <body>
   
     <div id="doc4" class="yui-t1">
-      <div id="hd" role="banner"><h1><img src='/images/qanda.png'/>QAeet - Symfony Bangalore</h1></div>
+      <div id="hd" role="banner"><h1><img src='/images/qanda.png'/>QAeet - <?php include_slot('title', 'Symfony Bangalore') ?></h1></div>
              
       <div id="bd" role="main"> 
         <div id="yui-main"> 
@@ -23,19 +23,19 @@
         </div>         
         <div role="navigation" class="yui-b">
           <?php if ($sf_user->hasFlash('notice')): ?>
-            <p class="notice">
+            <p class="notice"><img src='/css/bluetrip/img/icons/tick.png'/>
               <?php echo $sf_user->getFlash('notice') ?>
             </p>
           <?php endif; ?>
    
           <?php if ($sf_user->hasFlash('error')): ?>
-            <p class="error">
+            <p class="error"><img src='/css/bluetrip/img/icons/cross.png'/>
               <?php echo $sf_user->getFlash('error') ?>
             </p>
           <?php endif; ?>
 
           <?php if ($sf_user->hasFlash('success')): ?>
-            <p class="success">
+            <p class="success"><img src='/css/bluetrip/img/icons/information.png'/>
               <?php echo $sf_user->getFlash('success') ?>
             </p>
           <?php endif; ?>
