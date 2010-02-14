@@ -21,6 +21,8 @@ abstract class BaseAnswerForm extends BaseFormDoctrine
       'comment'     => new sfWidgetFormTextarea(),
       'answer'      => new sfWidgetFormTextarea(),
       'question'    => new sfWidgetFormTextarea(),
+      'created_at'  => new sfWidgetFormDateTime(),
+      'updated_at'  => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
@@ -30,6 +32,8 @@ abstract class BaseAnswerForm extends BaseFormDoctrine
       'comment'     => new sfValidatorString(array('required' => false)),
       'answer'      => new sfValidatorString(array('required' => false)),
       'question'    => new sfValidatorString(array('required' => false)),
+      'created_at'  => new sfValidatorDateTime(),
+      'updated_at'  => new sfValidatorDateTime(),
     ));
 
     $this->widgetSchema->setNameFormat('answer[%s]');

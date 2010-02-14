@@ -65,5 +65,8 @@ abstract class BaseAnswer extends sfDoctrineRecord
         $this->hasOne('Question', array(
              'local' => 'question_id',
              'foreign' => 'id'));
+
+        $timestampable0 = new Doctrine_Template_Timestampable();
+        $this->actAs($timestampable0);
     }
 }

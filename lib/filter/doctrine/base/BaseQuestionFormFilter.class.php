@@ -14,22 +14,26 @@ abstract class BaseQuestionFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'question'     => new sfWidgetFormFilterInput(),
+      'answer'       => new sfWidgetFormFilterInput(),
       'best_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('BestAnswer'), 'add_empty' => true)),
       'branch_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('BranchedAnswer'), 'add_empty' => true)),
       'author_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Author'), 'add_empty' => true)),
       'created_at'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
       'updated_at'   => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
+      'slug'         => new sfWidgetFormFilterInput(),
       'related_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Question')),
       'tags_list'    => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Tag')),
     ));
 
     $this->setValidators(array(
       'question'     => new sfValidatorPass(array('required' => false)),
+      'answer'       => new sfValidatorPass(array('required' => false)),
       'best_id'      => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('BestAnswer'), 'column' => 'id')),
       'branch_id'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('BranchedAnswer'), 'column' => 'id')),
       'author_id'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Author'), 'column' => 'id')),
       'created_at'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
       'updated_at'   => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
+      'slug'         => new sfValidatorPass(array('required' => false)),
       'related_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Question', 'required' => false)),
       'tags_list'    => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Tag', 'required' => false)),
     ));
@@ -85,11 +89,13 @@ abstract class BaseQuestionFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'           => 'Number',
       'question'     => 'Text',
+      'answer'       => 'Text',
       'best_id'      => 'ForeignKey',
       'branch_id'    => 'ForeignKey',
       'author_id'    => 'ForeignKey',
       'created_at'   => 'Date',
       'updated_at'   => 'Date',
+      'slug'         => 'Text',
       'related_list' => 'ManyKey',
       'tags_list'    => 'ManyKey',
     );

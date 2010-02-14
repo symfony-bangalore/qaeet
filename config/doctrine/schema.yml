@@ -5,8 +5,13 @@ Author:
 Question:
   actAs:
     Timestampable: ~
+    Sluggable:
+      unique: true
+      fields: [title]
+      canUpdate: true
   columns:
     question: string
+    answer: string
     best_id: integer
     branch_id: integer
     author_id: integer
@@ -36,7 +41,7 @@ Question:
       
 Answer:
   actAs:
-    Timestampable: ~
+    Timestampable:
   columns:
     author_id: integer
     question_id: integer

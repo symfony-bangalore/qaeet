@@ -28,5 +28,5 @@ class Question extends BaseQuestion
   public function __toString()
   {
     return $this->getTitle();
-  }
+  }  
 }

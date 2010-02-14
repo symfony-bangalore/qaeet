@@ -22,8 +22,7 @@ class answerActions extends sfActions
     $this->answer = Doctrine::getTable('Answer')->find(array($request->getParameter('id')));
     $this->forward404Unless($this->answer);
     
-    $this->answer->Question->BestAnswer = $this->answer;
-    $this->answer->Question->save();
+    $this->answer->setBest();
     
     $this->redirect('question/show?id='.$this->answer->Question->id);
   }

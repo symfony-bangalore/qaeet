@@ -17,11 +17,13 @@ abstract class BaseQuestionForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'           => new sfWidgetFormInputHidden(),
       'question'     => new sfWidgetFormTextarea(),
+      'answer'       => new sfWidgetFormTextarea(),
       'best_id'      => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('BestAnswer'), 'add_empty' => true)),
       'branch_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('BranchedAnswer'), 'add_empty' => true)),
       'author_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Author'), 'add_empty' => true)),
       'created_at'   => new sfWidgetFormDateTime(),
       'updated_at'   => new sfWidgetFormDateTime(),
+      'slug'         => new sfWidgetFormInputText(),
       'related_list' => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Question')),
       'tags_list'    => new sfWidgetFormDoctrineChoice(array('multiple' => true, 'model' => 'Tag')),
     ));
@@ -29,14 +31,20 @@ abstract class BaseQuestionForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'           => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
       'question'     => new sfValidatorString(array('required' => false)),
+      'answer'       => new sfValidatorString(array('required' => false)),
       'best_id'      => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('BestAnswer'), 'required' => false)),
       'branch_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('BranchedAnswer'), 'required' => false)),
       'author_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Author'), 'required' => false)),
       'created_at'   => new sfValidatorDateTime(),
       'updated_at'   => new sfValidatorDateTime(),
+      'slug'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'related_list' => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Question', 'required' => false)),
       'tags_list'    => new sfValidatorDoctrineChoice(array('multiple' => true, 'model' => 'Tag', 'required' => false)),
     ));
+
+    $this->validatorSchema->setPostValidator(
+      new sfValidatorDoctrineUnique(array('model' => 'Question', 'column' => array('slug')))
+    );
 
     $this->widgetSchema->setNameFormat('question[%s]');
 

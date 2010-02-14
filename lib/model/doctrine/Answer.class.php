@@ -16,4 +16,10 @@ class Answer extends BaseAnswer
   {
     return $this->id === $this->Question->best_id;
   }
+  
+  public function setBest()
+  {
+    $this->Question->BestAnswer = $this;
+    $this->Question->save();
+  }
 }

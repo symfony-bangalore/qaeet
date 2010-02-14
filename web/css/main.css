@@ -15,3 +15,17 @@ table.best_answer
   border-style: dotted;
   border-color: red;
 }
+
+div.question
+{
+  background: #ddf;
+  border: 1px solid #88f;
+  padding: 5px;
+}
+
+div.answer
+{
+  background: #fdd;
+  border: 1px solid #f88;
+  padding: 5px;
+}
