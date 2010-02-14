@@ -8,7 +8,21 @@
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
   </head>
-  <body>
-    <?php echo $sf_content ?>
+  <body>    
+    <div id="doc3" class="yui-t3"> 
+       <div id="hd" role="banner"><h1><img src='/images/qanda.png'/>QAeet - Symfony Bangalore</h1></div> 
+       <div id="bd" role="undefined"> 
+        <div id="yui-main"> 
+        <div class="yui-b"><div role="main" class="yui-g"> 
+          <?php echo $sf_content ?> 
+        </div> 
+    </div> 
+        </div> 
+        <div role="navigation" class="yui-b">
+        </div> 
+         
+        </div> 
+       <div id="ft" role="contentinfo"><p>Open sourced forum QA software, see <a href='http://github.com/symfony-bangalore/qaeet'>GitHub</a> - http://symfony-bangalore.org</p></div> 
+    </div> 
   </body>
 </html>

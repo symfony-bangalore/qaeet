@@ -12,7 +12,11 @@ default:
     #language:     en
     #robots:       index, follow
 
-  stylesheets:    [main.css]
+  stylesheets:
+    - reset-fonts-grids.css
+    - bluetrip/css/screen.css
+    - bluetrip/css/style.css
+    - main.css
 
   javascripts:    []
 

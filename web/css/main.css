@@ -1,6 +1,6 @@
 body
 {
-  background: #aaa;
+  font-size: 116%;
 }
 
 table.answer
@@ -18,14 +18,16 @@ table.best_answer
 
 div.question
 {
-  background: #ddf;
+  background: #ddf url(/images/question.png) no-repeat top right;
   border: 1px solid #88f;
   padding: 5px;
+  min-height: 90px;
 }
 
 div.answer
 {
-  background: #fdd;
+  background: #fdd url(/images/answer.png) no-repeat top right;
   border: 1px solid #f88;
   padding: 5px;
+  min-height: 90px;
 }
