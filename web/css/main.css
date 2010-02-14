@@ -36,6 +36,32 @@ h1 {
   font-size:2.5em;
 }
 
-ul.tagcloud { padding: 2px; line-height: 125%; text-align: center; margin: 0; }
-ul.tagcloud a { padding: 0px; }
-ul.tagcloud li { display: inline; }
+ul.tag_cloud, ul.tag_list 
+{
+  padding: 2px; 
+  margin: 0; 
+}
+ul.tag_cloud
+{
+  line-height: 135%; 
+  text-align: center; 
+}
+ul.tag_cloud a { padding: 0px; }
+
+ul.tag_cloud li.tag, ul.tag_list li.tag
+{
+  display: inline;
+}
+
+li.tag a {
+  padding: 1px;
+  padding-left: 14px; 
+  background: #fed url(/icon/tag-small.png) no-repeat top left;
+  border: 1px solid #edc;
+  text-decoration: none;
+}
+
+li.tag a:hover {
+  background-color: #fc9;
+  border: 1px solid #fb7;
+}

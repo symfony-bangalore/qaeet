@@ -23,7 +23,9 @@
         </div>         
         <div role="navigation" class="yui-b">
           <?php include_partial('global/flash_messages') ?>
+          <?php include_partial('global/unanswered') ?>
           <?php include_partial('global/tagcloud') ?>
+          <?php include_partial('global/latest') ?>
 
           <!-- YOUR NAVIGATION GOES HERE -->
         </div>          

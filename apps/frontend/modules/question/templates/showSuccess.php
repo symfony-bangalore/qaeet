@@ -17,7 +17,7 @@ on <?php echo $question->BestAnswer->getDateTimeObject('created_at')->format('m/
 <hr/>
 <ul class='tag_list'>
 <?php foreach ($question->Tags as $tag): ?>
-  <li><?php echo $tag ?></li>
+  <li class='tag'><?php echo link_to($tag,'tag/index?id='.$tag->id) ?></li>
 <?php endforeach; ?>
 </ul>
 <hr />
