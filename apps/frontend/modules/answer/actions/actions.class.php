@@ -23,6 +23,7 @@ class answerActions extends sfActions
     $this->forward404Unless($this->answer);
     
     $this->answer->setBest();
+    $this->getUser()->setFlash('success','Changed the answer as best answer');
     
     $this->redirect('question/show?id='.$this->answer->Question->id);
   }

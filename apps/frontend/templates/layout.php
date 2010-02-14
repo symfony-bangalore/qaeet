@@ -3,26 +3,48 @@
   <head>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
-    <?php include_title() ?>
+    <title>QAeet - <?php include_slot('title', 'real questions, real answers') ?></title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
   </head>
-  <body>    
-    <div id="doc3" class="yui-t3"> 
-       <div id="hd" role="banner"><h1><img src='/images/qanda.png'/>QAeet - Symfony Bangalore</h1></div> 
-       <div id="bd" role="undefined"> 
+  <body>
+  
+    <div id="doc4" class="yui-t1">
+      <div id="hd" role="banner"><h1><img src='/images/qanda.png'/>QAeet - Symfony Bangalore</h1></div>
+             
+      <div id="bd" role="main"> 
         <div id="yui-main"> 
-        <div class="yui-b"><div role="main" class="yui-g"> 
-          <?php echo $sf_content ?> 
-        </div> 
-    </div> 
-        </div> 
+          <div class="yui-b">
+            <div class="yui-g"> 
+              <?php echo $sf_content ?> 
+            </div> 
+          </div> 
+        </div>         
         <div role="navigation" class="yui-b">
-        </div> 
-         
-        </div> 
-       <div id="ft" role="contentinfo"><p>Open sourced forum QA software, see <a href='http://github.com/symfony-bangalore/qaeet'>GitHub</a> - http://symfony-bangalore.org</p></div> 
-    </div> 
+          <?php if ($sf_user->hasFlash('notice')): ?>
+            <p class="notice">
+              <?php echo $sf_user->getFlash('notice') ?>
+            </p>
+          <?php endif; ?>
+   
+          <?php if ($sf_user->hasFlash('error')): ?>
+            <p class="error">
+              <?php echo $sf_user->getFlash('error') ?>
+            </p>
+          <?php endif; ?>
+
+          <?php if ($sf_user->hasFlash('success')): ?>
+            <p class="success">
+              <?php echo $sf_user->getFlash('success') ?>
+            </p>
+          <?php endif; ?>
+          <!-- YOUR NAVIGATION GOES HERE -->
+        </div>          
+      </div> 
+      
+      <div id="ft" role="contentinfo"><p>Open sourced forum QA software, see <a href='http://github.com/symfony-bangalore/qaeet'>GitHub</a> - http://symfony-bangalore.org</p></div> 
+    </div>
+
   </body>
 </html>

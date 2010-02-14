@@ -47,7 +47,7 @@ on <?php echo $question->getDateTimeObject('created_at')->format('m/d/Y') ?>
   <?php echo HTMLify($sf_data->getRaw('question')->getBody()) ?>
 </div>
 
-<?php if (null !== $question->BestAnswer): ?>
+<?php if ($question->hasBestAnswer()): ?>
 Answered by <?php echo $question->BestAnswer->Author ?> 
 on <?php echo $question->BestAnswer->getDateTimeObject('created_at')->format('m/d/Y') ?>
 <div class='answer answer_best'>

@@ -28,5 +28,10 @@ class Question extends BaseQuestion
   public function __toString()
   {
     return $this->getTitle();
-  }  
+  }
+  
+  public function hasBestAnswer()
+  {
+    return null !== $this->best_id;
+  }
 }
