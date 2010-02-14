@@ -2,6 +2,18 @@
 
 class TagTable extends Doctrine_Table
 {
+  public function getCloud()
+  {
+    $tags = Doctrine_Query::create()
+      ->select('t.name, COUNT(q.question_id) as num')
+      ->from('Tag t')
+      ->innerJoin(('t.QuestionTags q'))
+      ->orderBy('num DESC')
+      ->limit(100)
+      ->fetchArray();
+    return $tags;
+  }
+  
   public function findOrCreateByName(array $names)
   {
     if (count($names) > 0)

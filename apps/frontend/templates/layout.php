@@ -3,7 +3,7 @@
   <head>
     <?php include_http_metas() ?>
     <?php include_metas() ?>
-    <title>QAeet - <?php include_slot('title', 'real questions, real answers') ?></title>
+    <title>QAeet - <?php include_slot('title', 'Symfony Bangalore') ?></title>
     <link rel="shortcut icon" href="/favicon.ico" />
     <?php include_stylesheets() ?>
     <?php include_javascripts() ?>
@@ -11,7 +11,7 @@
   <body>
   
     <div id="doc4" class="yui-t1">
-      <div id="hd" role="banner"><h1><img src='/images/qanda.png'/>QAeet - <?php include_slot('title', 'Symfony Bangalore') ?></h1></div>
+      <div id="hd" role="banner"><h1><img src='/images/qanda.png'/><?php include_slot('title', 'QAeet - Symfony Bangalore') ?></h1></div>
              
       <div id="bd" role="main"> 
         <div id="yui-main"> 

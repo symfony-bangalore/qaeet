@@ -81,3 +81,8 @@ Tag:
     name:
       type: string(255)
       unique: true
+  relations:
+    QuestionTags:
+      class: QuestionTag
+      local: id
+      foreign: tag_id

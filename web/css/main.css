@@ -31,3 +31,7 @@ div.answer
   padding: 5px;
   min-height: 90px;
 }
+
+h1 {
+  font-size:2.5em;
+}

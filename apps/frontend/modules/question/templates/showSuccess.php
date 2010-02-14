@@ -1,4 +1,5 @@
-<h1><?php echo $question->getTitle() ?></h1>
+<?php slot('title', sprintf('%s', $question->getTitle())) ?>
+
 Posted by <?php echo $question->Author ?> 
 on <?php echo $question->getDateTimeObject('created_at')->format('m/d/Y') ?>
 <div class='question'>
@@ -20,6 +21,8 @@ on <?php echo $question->BestAnswer->getDateTimeObject('created_at')->format('m/
 <?php endforeach; ?>
 </ul>
 <hr />
+
+<?php echo "<pre>".var_dump(Doctrine::getTable('Tag')->getCloud(),true)."</pre>" ?>
 
 <ul>
 <?php foreach ($question->Answers as $answer): ?>

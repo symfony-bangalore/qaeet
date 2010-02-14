@@ -3561,3 +3561,235 @@ Feb 14 11:26:34 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.47 ms (1
 Feb 14 11:26:34 symfony [info] {sfWebDebugLogger} View "Success" for "question/show" 710.87 ms (1)
 Feb 14 11:26:34 symfony [info] {sfWebDebugLogger} Partial "answer/_answer" 240.07 ms (2)
 Feb 14 11:26:35 symfony [info] {sfWebResponse} Send content (51973 o)
+Feb 14 11:30:27 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /question/show/id/1 with parameters array (  'module' => 'question',  'action' => 'show',  'id' => '1',)
+Feb 14 11:30:27 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 14 11:30:27 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 14 11:30:27 symfony [info] {questionActions} Call "questionActions->executeShow()"
+Feb 14 11:30:27 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 14 11:30:27 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) LIMIT 1 - (1)
+Feb 14 11:30:27 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\modules/question/templates/showSuccess.php"
+Feb 14 11:30:28 symfony [info] {main} Set slot "title"
+Feb 14 11:30:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (2)
+Feb 14 11:30:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.id = ?) - (1)
+Feb 14 11:30:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (1)
+Feb 14 11:30:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, q.question_id AS q__question_id, q.tag_id AS q__tag_id FROM tag t LEFT JOIN question_tag q ON t.id = q.tag_id WHERE (q.question_id IN (?)) - (1)
+Feb 14 11:30:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.question_id IN (?)) - (1)
+Feb 14 11:30:28 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_answer.php"
+Feb 14 11:30:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 14 11:30:28 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_answer.php"
+Feb 14 11:30:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 14 11:30:28 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (3)
+Feb 14 11:30:28 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 14 11:30:28 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 14 11:30:28 symfony [info] {main} Get slot "title"
+Feb 14 11:30:28 symfony [info] {main} Get slot "title"
+Feb 14 11:30:28 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 14 11:30:28 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 14 11:30:28 symfony [info] {sfWebDebugLogger} Configuration 33.77 ms (9)
+Feb 14 11:30:28 symfony [info] {sfWebDebugLogger} Factories 142.32 ms (1)
+Feb 14 11:30:28 symfony [info] {sfWebDebugLogger} Action "question/show" 260.28 ms (1)
+Feb 14 11:30:28 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.44 ms (10)
+Feb 14 11:30:28 symfony [info] {sfWebDebugLogger} View "Success" for "question/show" 658.84 ms (1)
+Feb 14 11:30:28 symfony [info] {sfWebDebugLogger} Partial "answer/_answer" 173.30 ms (2)
+Feb 14 11:30:28 symfony [info] {sfWebResponse} Send content (52235 o)
+Feb 14 11:32:13 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /question/show/id/1 with parameters array (  'module' => 'question',  'action' => 'show',  'id' => '1',)
+Feb 14 11:32:13 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 14 11:32:13 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 14 11:32:13 symfony [info] {questionActions} Call "questionActions->executeShow()"
+Feb 14 11:32:13 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 14 11:32:13 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) LIMIT 1 - (1)
+Feb 14 11:32:13 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\modules/question/templates/showSuccess.php"
+Feb 14 11:32:14 symfony [info] {main} Set slot "title"
+Feb 14 11:32:14 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (2)
+Feb 14 11:32:14 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.id = ?) - (1)
+Feb 14 11:32:14 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (1)
+Feb 14 11:32:14 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, q.question_id AS q__question_id, q.tag_id AS q__tag_id FROM tag t LEFT JOIN question_tag q ON t.id = q.tag_id WHERE (q.question_id IN (?)) - (1)
+Feb 14 11:32:14 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.question_id IN (?)) - (1)
+Feb 14 11:32:14 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_answer.php"
+Feb 14 11:32:14 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 14 11:32:14 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_answer.php"
+Feb 14 11:32:14 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 14 11:32:14 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (3)
+Feb 14 11:32:14 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 14 11:32:14 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 14 11:32:14 symfony [info] {main} Get slot "title"
+Feb 14 11:32:14 symfony [info] {main} Get slot "title"
+Feb 14 11:32:14 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 14 11:32:14 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 14 11:32:14 symfony [info] {sfWebDebugLogger} Configuration 22.57 ms (9)
+Feb 14 11:32:14 symfony [info] {sfWebDebugLogger} Factories 134.93 ms (1)
+Feb 14 11:32:14 symfony [info] {sfWebDebugLogger} Action "question/show" 263.62 ms (1)
+Feb 14 11:32:14 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.45 ms (10)
+Feb 14 11:32:14 symfony [info] {sfWebDebugLogger} View "Success" for "question/show" 725.18 ms (1)
+Feb 14 11:32:14 symfony [info] {sfWebDebugLogger} Partial "answer/_answer" 185.97 ms (2)
+Feb 14 11:32:14 symfony [info] {sfWebResponse} Send content (52227 o)
+Feb 14 11:32:26 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /question/show/id/1 with parameters array (  'module' => 'question',  'action' => 'show',  'id' => '1',)
+Feb 14 11:32:26 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 14 11:32:26 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 14 11:32:26 symfony [info] {questionActions} Call "questionActions->executeShow()"
+Feb 14 11:32:26 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 14 11:32:26 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) LIMIT 1 - (1)
+Feb 14 11:32:26 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\modules/question/templates/showSuccess.php"
+Feb 14 11:32:26 symfony [info] {main} Set slot "title"
+Feb 14 11:32:26 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (2)
+Feb 14 11:32:26 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.id = ?) - (1)
+Feb 14 11:32:26 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (1)
+Feb 14 11:32:26 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, q.question_id AS q__question_id, q.tag_id AS q__tag_id FROM tag t LEFT JOIN question_tag q ON t.id = q.tag_id WHERE (q.question_id IN (?)) - (1)
+Feb 14 11:32:26 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.question_id IN (?)) - (1)
+Feb 14 11:32:26 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_answer.php"
+Feb 14 11:32:26 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 14 11:32:26 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_answer.php"
+Feb 14 11:32:27 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 14 11:32:27 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (3)
+Feb 14 11:32:27 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 14 11:32:27 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 14 11:32:27 symfony [info] {main} Get slot "title"
+Feb 14 11:32:27 symfony [info] {main} Get slot "title"
+Feb 14 11:32:27 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 14 11:32:27 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 14 11:32:27 symfony [info] {sfWebDebugLogger} Configuration 29.72 ms (9)
+Feb 14 11:32:27 symfony [info] {sfWebDebugLogger} Factories 133.73 ms (1)
+Feb 14 11:32:27 symfony [info] {sfWebDebugLogger} Action "question/show" 271.25 ms (1)
+Feb 14 11:32:27 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.41 ms (10)
+Feb 14 11:32:27 symfony [info] {sfWebDebugLogger} View "Success" for "question/show" 660.73 ms (1)
+Feb 14 11:32:27 symfony [info] {sfWebDebugLogger} Partial "answer/_answer" 162.79 ms (2)
+Feb 14 11:32:27 symfony [info] {sfWebResponse} Send content (52227 o)
+Feb 14 11:39:04 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /question/show/id/1 with parameters array (  'module' => 'question',  'action' => 'show',  'id' => '1',)
+Feb 14 11:39:04 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 14 11:39:04 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 14 11:39:04 symfony [info] {questionActions} Call "questionActions->executeShow()"
+Feb 14 11:39:04 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 14 11:39:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) LIMIT 1 - (1)
+Feb 14 11:39:04 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\modules/question/templates/showSuccess.php"
+Feb 14 11:39:04 symfony [info] {main} Set slot "title"
+Feb 14 11:39:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (2)
+Feb 14 11:39:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.id = ?) - (1)
+Feb 14 11:39:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (1)
+Feb 14 11:39:04 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, q.question_id AS q__question_id, q.tag_id AS q__tag_id FROM tag t LEFT JOIN question_tag q ON t.id = q.tag_id WHERE (q.question_id IN (?)) - (1)
+Feb 14 11:39:05 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t2.id, COUNT(q3.id) AS q3__0 FROM tag t2 LEFT JOIN question_tag q4 ON (t2.id = q4.tag_id) LEFT JOIN question q3 ON q3.id = q4.question_id ORDER BY q3__0 DESC LIMIT 100 - ()
+Feb 14 11:39:05 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t LEFT JOIN question_tag q2 ON (t.id = q2.tag_id) LEFT JOIN question q ON q.id = q2.question_id WHERE t.id IN ('1') ORDER BY q__0 DESC - ()
+Feb 14 11:39:05 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.question_id IN (?)) - (1)
+Feb 14 11:39:05 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_answer.php"
+Feb 14 11:39:05 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 14 11:39:05 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_answer.php"
+Feb 14 11:39:05 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 14 11:39:05 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (3)
+Feb 14 11:39:05 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 14 11:39:05 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 14 11:39:05 symfony [info] {main} Get slot "title"
+Feb 14 11:39:05 symfony [info] {main} Get slot "title"
+Feb 14 11:39:05 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 14 11:39:05 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 14 11:39:05 symfony [info] {sfWebDebugLogger} Configuration 38.80 ms (9)
+Feb 14 11:39:05 symfony [info] {sfWebDebugLogger} Factories 162.65 ms (1)
+Feb 14 11:39:05 symfony [info] {sfWebDebugLogger} Action "question/show" 320.45 ms (1)
+Feb 14 11:39:05 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.78 ms (12)
+Feb 14 11:39:05 symfony [info] {sfWebDebugLogger} View "Success" for "question/show" 972.80 ms (1)
+Feb 14 11:39:05 symfony [info] {sfWebDebugLogger} Partial "answer/_answer" 174.45 ms (2)
+Feb 14 11:39:05 symfony [info] {sfWebResponse} Send content (56233 o)
+Feb 14 11:39:40 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /question/show/id/1 with parameters array (  'module' => 'question',  'action' => 'show',  'id' => '1',)
+Feb 14 11:39:40 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 14 11:39:40 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 14 11:39:40 symfony [info] {questionActions} Call "questionActions->executeShow()"
+Feb 14 11:39:40 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 14 11:39:40 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) LIMIT 1 - (1)
+Feb 14 11:39:40 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\modules/question/templates/showSuccess.php"
+Feb 14 11:39:40 symfony [info] {main} Set slot "title"
+Feb 14 11:39:40 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (2)
+Feb 14 11:39:40 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.id = ?) - (1)
+Feb 14 11:39:40 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (1)
+Feb 14 11:39:40 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, q.question_id AS q__question_id, q.tag_id AS q__tag_id FROM tag t LEFT JOIN question_tag q ON t.id = q.tag_id WHERE (q.question_id IN (?)) - (1)
+Feb 14 11:39:41 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t2.id, COUNT(q3.id) AS q3__0 FROM tag t2 LEFT JOIN question_tag q4 ON (t2.id = q4.tag_id) LEFT JOIN question q3 ON q3.id = q4.question_id ORDER BY q3__0 DESC LIMIT 100 - ()
+Feb 14 11:39:41 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t LEFT JOIN question_tag q2 ON (t.id = q2.tag_id) LEFT JOIN question q ON q.id = q2.question_id WHERE t.id IN ('1') ORDER BY q__0 DESC - ()
+Feb 14 11:40:05 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /question/show/id/1 with parameters array (  'module' => 'question',  'action' => 'show',  'id' => '1',)
+Feb 14 11:40:05 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 14 11:40:05 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 14 11:40:05 symfony [info] {questionActions} Call "questionActions->executeShow()"
+Feb 14 11:40:06 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 14 11:40:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) LIMIT 1 - (1)
+Feb 14 11:40:06 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\modules/question/templates/showSuccess.php"
+Feb 14 11:40:06 symfony [info] {main} Set slot "title"
+Feb 14 11:40:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (2)
+Feb 14 11:40:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.id = ?) - (1)
+Feb 14 11:40:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (1)
+Feb 14 11:40:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, q.question_id AS q__question_id, q.tag_id AS q__tag_id FROM tag t LEFT JOIN question_tag q ON t.id = q.tag_id WHERE (q.question_id IN (?)) - (1)
+Feb 14 11:40:07 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t2.id, COUNT(q3.id) AS q3__0 FROM tag t2 LEFT JOIN question_tag q4 ON (t2.id = q4.tag_id) LEFT JOIN question q3 ON q3.id = q4.question_id ORDER BY q3__0 DESC LIMIT 100 - ()
+Feb 14 11:40:07 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t LEFT JOIN question_tag q2 ON (t.id = q2.tag_id) LEFT JOIN question q ON q.id = q2.question_id WHERE t.id IN ('1') ORDER BY q__0 DESC - ()
+Feb 14 11:40:07 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.question_id IN (?)) - (1)
+Feb 14 11:40:07 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_answer.php"
+Feb 14 11:40:07 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 14 11:40:07 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_answer.php"
+Feb 14 11:40:07 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 14 11:40:07 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (3)
+Feb 14 11:40:07 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 14 11:40:07 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 14 11:40:07 symfony [info] {main} Get slot "title"
+Feb 14 11:40:07 symfony [info] {main} Get slot "title"
+Feb 14 11:40:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 14 11:40:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 14 11:40:07 symfony [info] {sfWebDebugLogger} Configuration 62.42 ms (9)
+Feb 14 11:40:07 symfony [info] {sfWebDebugLogger} Factories 307.33 ms (1)
+Feb 14 11:40:07 symfony [info] {sfWebDebugLogger} Action "question/show" 595.24 ms (1)
+Feb 14 11:40:07 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.77 ms (12)
+Feb 14 11:40:07 symfony [info] {sfWebDebugLogger} View "Success" for "question/show" 1496.96 ms (1)
+Feb 14 11:40:07 symfony [info] {sfWebDebugLogger} Partial "answer/_answer" 326.47 ms (2)
+Feb 14 11:40:08 symfony [info] {sfWebResponse} Send content (76034 o)
+Feb 14 11:40:51 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /question/show/id/1 with parameters array (  'module' => 'question',  'action' => 'show',  'id' => '1',)
+Feb 14 11:40:51 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 14 11:40:51 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 14 11:40:51 symfony [info] {questionActions} Call "questionActions->executeShow()"
+Feb 14 11:40:52 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 14 11:40:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) LIMIT 1 - (1)
+Feb 14 11:40:52 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\modules/question/templates/showSuccess.php"
+Feb 14 11:40:52 symfony [info] {main} Set slot "title"
+Feb 14 11:40:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (2)
+Feb 14 11:40:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.id = ?) - (1)
+Feb 14 11:40:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (1)
+Feb 14 11:40:52 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, q.question_id AS q__question_id, q.tag_id AS q__tag_id FROM tag t LEFT JOIN question_tag q ON t.id = q.tag_id WHERE (q.question_id IN (?)) - (1)
+Feb 14 11:40:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t2.id, COUNT(q3.id) AS q3__0 FROM tag t2 LEFT JOIN question_tag q4 ON (t2.id = q4.tag_id) LEFT JOIN question q3 ON q3.id = q4.question_id ORDER BY q3__0 DESC LIMIT 100 - ()
+Feb 14 11:40:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t LEFT JOIN question_tag q2 ON (t.id = q2.tag_id) LEFT JOIN question q ON q.id = q2.question_id WHERE t.id IN ('1') ORDER BY q__0 DESC - ()
+Feb 14 11:43:47 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /question/show/id/1 with parameters array (  'module' => 'question',  'action' => 'show',  'id' => '1',)
+Feb 14 11:43:47 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 14 11:43:47 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 14 11:43:47 symfony [info] {questionActions} Call "questionActions->executeShow()"
+Feb 14 11:43:47 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 14 11:43:47 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) LIMIT 1 - (1)
+Feb 14 11:43:47 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\modules/question/templates/showSuccess.php"
+Feb 14 11:43:47 symfony [info] {main} Set slot "title"
+Feb 14 11:43:47 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (2)
+Feb 14 11:43:48 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.id = ?) - (1)
+Feb 14 11:43:48 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (1)
+Feb 14 11:43:48 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, q.question_id AS q__question_id, q.tag_id AS q__tag_id FROM tag t LEFT JOIN question_tag q ON t.id = q.tag_id WHERE (q.question_id IN (?)) - (1)
+Feb 14 11:44:01 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /question/show/id/1 with parameters array (  'module' => 'question',  'action' => 'show',  'id' => '1',)
+Feb 14 11:44:01 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 14 11:44:01 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 14 11:44:01 symfony [info] {questionActions} Call "questionActions->executeShow()"
+Feb 14 11:44:01 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 14 11:44:01 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) LIMIT 1 - (1)
+Feb 14 11:44:01 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\modules/question/templates/showSuccess.php"
+Feb 14 11:44:01 symfony [info] {main} Set slot "title"
+Feb 14 11:44:01 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (2)
+Feb 14 11:44:01 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.id = ?) - (1)
+Feb 14 11:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (1)
+Feb 14 11:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT t.id AS t__id, t.name AS t__name, q.question_id AS q__question_id, q.tag_id AS q__tag_id FROM tag t LEFT JOIN question_tag q ON t.id = q.tag_id WHERE (q.question_id IN (?)) - (1)
+Feb 14 11:44:02 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t2.id, COUNT(q3.id) AS q3__0 FROM tag t2 INNER JOIN question_tag q4 ON (t2.id = q4.tag_id) INNER JOIN question q3 ON q3.id = q4.question_id ORDER BY q3__0 DESC LIMIT 100 - ()
+Feb 14 11:44:02 symfony [info] {Doctrine_Connection_Mysql} query : SELECT t.id AS t__id, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id WHERE t.id IN ('1') ORDER BY q__0 DESC - ()
+Feb 14 11:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.author_id AS a__author_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a WHERE (a.question_id IN (?)) - (1)
+Feb 14 11:44:02 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_answer.php"
+Feb 14 11:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 14 11:44:02 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_answer.php"
+Feb 14 11:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 14 11:44:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT a.id AS a__id, a.name AS a__name FROM author a WHERE (a.id = ?) - (3)
+Feb 14 11:44:02 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 14 11:44:02 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 14 11:44:02 symfony [info] {main} Get slot "title"
+Feb 14 11:44:02 symfony [info] {main} Get slot "title"
+Feb 14 11:44:02 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 14 11:44:02 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 14 11:44:02 symfony [info] {sfWebDebugLogger} Configuration 24.12 ms (9)
+Feb 14 11:44:02 symfony [info] {sfWebDebugLogger} Factories 141.16 ms (1)
+Feb 14 11:44:02 symfony [info] {sfWebDebugLogger} Action "question/show" 266.59 ms (1)
+Feb 14 11:44:02 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.55 ms (12)
+Feb 14 11:44:02 symfony [info] {sfWebDebugLogger} View "Success" for "question/show" 767.91 ms (1)
+Feb 14 11:44:02 symfony [info] {sfWebDebugLogger} Partial "answer/_answer" 167.67 ms (2)
+Feb 14 11:44:02 symfony [info] {sfWebResponse} Send content (56703 o)
