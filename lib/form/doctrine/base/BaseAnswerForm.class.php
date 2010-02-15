@@ -17,6 +17,7 @@ abstract class BaseAnswerForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'          => new sfWidgetFormInputHidden(),
       'author_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Author'), 'add_empty' => true)),
+      'reply_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('ReplyTo'), 'add_empty' => true)),
       'question_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Question'), 'add_empty' => true)),
       'comment'     => new sfWidgetFormTextarea(),
       'answer'      => new sfWidgetFormTextarea(),
@@ -28,6 +29,7 @@ abstract class BaseAnswerForm extends BaseFormDoctrine
     $this->setValidators(array(
       'id'          => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
       'author_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Author'), 'required' => false)),
+      'reply_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('ReplyTo'), 'required' => false)),
       'question_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Question'), 'required' => false)),
       'comment'     => new sfValidatorString(array('required' => false)),
       'answer'      => new sfValidatorString(array('required' => false)),

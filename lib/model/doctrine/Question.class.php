@@ -15,7 +15,18 @@ class Question extends BaseQuestion
   public function getTitle()
   {
     $lines = explode("\n" ,$this->question);
-    return $lines[0];
+    return str_replace('#','', $lines[0]);
+  }
+  
+  public function getSimilarQuestions($limit = 10)
+  {
+    throw new Exception('Not implemented yet');
+    //create table QuestionTags (questionid int, tag int);
+    //
+    //select q1.questionid, q2.questionid, count(*) as commontags
+    //from QuestionTags q1 join QuestionTags q2 
+    //where q1.tag = q2.tag and q1.questionid < q2.questionid
+    //group by q1.questionid, q2.questionid order by commontags desc;
   }
   
   public function getBody()

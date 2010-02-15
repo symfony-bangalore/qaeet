@@ -44,6 +44,7 @@ Answer:
     Timestampable:
   columns:
     author_id: integer
+    reply_id: integer
     question_id: integer
     comment: string
     answer: string
@@ -53,6 +54,10 @@ Answer:
       foreignAlias: Questions
     Question:
       foreignAlias: Answers 
+    ReplyTo:
+      class: Answer
+      local: reply_id
+      foreignAlias: Replies
 
 QuestionRelation:
   columns:

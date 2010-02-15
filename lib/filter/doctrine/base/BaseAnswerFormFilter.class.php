@@ -14,6 +14,7 @@ abstract class BaseAnswerFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'author_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Author'), 'add_empty' => true)),
+      'reply_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('ReplyTo'), 'add_empty' => true)),
       'question_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Question'), 'add_empty' => true)),
       'comment'     => new sfWidgetFormFilterInput(),
       'answer'      => new sfWidgetFormFilterInput(),
@@ -24,6 +25,7 @@ abstract class BaseAnswerFormFilter extends BaseFormFilterDoctrine
 
     $this->setValidators(array(
       'author_id'   => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Author'), 'column' => 'id')),
+      'reply_id'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('ReplyTo'), 'column' => 'id')),
       'question_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Question'), 'column' => 'id')),
       'comment'     => new sfValidatorPass(array('required' => false)),
       'answer'      => new sfValidatorPass(array('required' => false)),
@@ -51,6 +53,7 @@ abstract class BaseAnswerFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'          => 'Number',
       'author_id'   => 'ForeignKey',
+      'reply_id'    => 'ForeignKey',
       'question_id' => 'ForeignKey',
       'comment'     => 'Text',
       'answer'      => 'Text',

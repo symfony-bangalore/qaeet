@@ -10,8 +10,8 @@
   </head>
   <body>
   
-    <div id="doc4" class="yui-t1">
-      <div id="hd" role="banner"><h1><img src='/images/qanda.png'/>&nbsp;<?php include_slot('title', 'QAeet - Symfony Bangalore') ?></h1></div>
+    <div id="doc4" class="yui-t3">
+      <div id="hd" role="banner"><?php echo link_to("<img src='/images/qanda.png'/>","/") ?><h1><?php include_slot('title', 'QAeet - Symfony Bangalore') ?></h1></div>
              
       <div id="bd" role="main"> 
         <div id="yui-main"> 
@@ -21,11 +21,11 @@
             </div> 
           </div> 
         </div>         
-        <div role="navigation" class="yui-b">
+        <div id="yui-nav" role="navigation" class="yui-b">
           <?php include_partial('global/flash_messages') ?>
-          <?php include_partial('global/unanswered') ?>
+          <?php include_partial('global/unanswered_questions') ?>
           <?php include_partial('global/tagcloud') ?>
-          <?php include_partial('global/latest') ?>
+          <?php include_partial('global/latest_answers') ?>
 
           <!-- YOUR NAVIGATION GOES HERE -->
         </div>          

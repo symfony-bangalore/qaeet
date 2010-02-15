@@ -39,8 +39,12 @@ class answerActions extends sfActions
     $this->question = Doctrine::getTable('Question')->find(array($request->getParameter('question_id')));
     $this->forward404Unless($this->question);
     
+    // apply defaults
     $answer = new Answer();
     $answer->Question = $this->question;
+    $answer->ReplyTo = $this->Question->BestAnser;
+    $answer->question = $this->Question->question;
+    $answer->answer = $this->Question->answer;
     
     $this->form = new AnswerForm($answer);
     
