@@ -42,9 +42,9 @@ class answerActions extends sfActions
     // apply defaults
     $answer = new Answer();
     $answer->Question = $this->question;
-    $answer->ReplyTo = $this->Question->BestAnser;
-    $answer->question = $this->Question->question;
-    $answer->answer = $this->Question->answer;
+    $answer->ReplyTo = $this->question->BestAnswer;
+    $answer->question = $this->question->question;
+    $answer->answer = $this->question->answer;
     
     $this->form = new AnswerForm($answer);
     
