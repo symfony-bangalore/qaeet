@@ -13,7 +13,7 @@
  * @property Answer $BestAnswer
  * @property Answer $BranchedAnswer
  * @property Doctrine_Collection $Related
- * @property Author $Author
+ * @property sfGuardUserProfile $Author
  * @property Doctrine_Collection $Tags
  * @property Doctrine_Collection $Answers
  * 
@@ -25,7 +25,7 @@
  * @method Answer              getBestAnswer()     Returns the current record's "BestAnswer" value
  * @method Answer              getBranchedAnswer() Returns the current record's "BranchedAnswer" value
  * @method Doctrine_Collection getRelated()        Returns the current record's "Related" collection
- * @method Author              getAuthor()         Returns the current record's "Author" value
+ * @method sfGuardUserProfile  getAuthor()         Returns the current record's "Author" value
  * @method Doctrine_Collection getTags()           Returns the current record's "Tags" collection
  * @method Doctrine_Collection getAnswers()        Returns the current record's "Answers" collection
  * @method Question            setQuestion()       Sets the current record's "question" value
@@ -62,8 +62,9 @@ abstract class BaseQuestion extends sfDoctrineRecord
         $this->hasColumn('branch_id', 'integer', null, array(
              'type' => 'integer',
              ));
-        $this->hasColumn('author_id', 'integer', null, array(
+        $this->hasColumn('author_id', 'integer', 4, array(
              'type' => 'integer',
+             'length' => '4',
              ));
     }
 
@@ -84,7 +85,7 @@ abstract class BaseQuestion extends sfDoctrineRecord
              'foreign' => 'to_id',
              'equal' => true));
 
-        $this->hasOne('Author', array(
+        $this->hasOne('sfGuardUserProfile as Author', array(
              'local' => 'author_id',
              'foreign' => 'id'));
 

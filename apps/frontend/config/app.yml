@@ -1,5 +1,15 @@
-# You can find more information about this file on the symfony website:
-# http://www.symfony-project.org/reference/1_4/en/11-App
+all:
+  sfApplyPlugin:
+    from:
+      email: "no-reply@symfony-bangalore.org"
+      fullname: "Symfony Bangalore Administrator sends you"
 
-# default values
-#all:
+    # Configure the gmail symfony.bangalore account to use for sending mails
+    mail_transport_class: Zend_Mail_Transport_Smtp
+    mail_transport_host: smtp.gmail.com
+    mail_transport_options:
+      auth: login
+      username: symfony.bangalore@gmail.com
+      password: '1W#r5Y&i'
+      ssl: tls
+      port: 587

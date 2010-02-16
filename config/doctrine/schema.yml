@@ -1,7 +1,29 @@
-Author:
+sfGuardUserProfile:
+  tableName: sf_guard_user_profile
   columns:
-    name: string(255)
-  
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(4)
+      notnull: true
+    email:
+      type: string(80)
+    fullname:
+      type: string(80)
+    validate:
+      type: string(17)
+  relations:
+    User:
+      class: sfGuardUser
+      foreign: id
+      local: user_id
+      type: one  
+      onDelete: cascade    
+      foreignType: one
+      foreignAlias: Profile
+
 Question:
   actAs:
     Timestampable: ~
@@ -14,7 +36,7 @@ Question:
     answer: string
     best_id: integer
     branch_id: integer
-    author_id: integer
+    author_id: integer(4)
   relations:
     BestAnswer:
       class: Answer
@@ -31,6 +53,8 @@ Question:
       foreign: to_id
       equal: true
     Author:
+      class: sfGuardUserProfile
+      local: author_id
       foreignAlias: Questions
     Tags:
       class:        Tag
@@ -43,7 +67,7 @@ Answer:
   actAs:
     Timestampable:
   columns:
-    author_id: integer
+    author_id: integer(4)
     reply_id: integer
     question_id: integer
     comment: string
@@ -51,7 +75,9 @@ Answer:
     question: string
   relations:
     Author:
-      foreignAlias: Questions
+      class: sfGuardUserProfile
+      local: author_id
+      foreignAlias: Answers
     Question:
       foreignAlias: Answers 
     ReplyTo:

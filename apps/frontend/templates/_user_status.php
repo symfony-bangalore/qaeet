@@ -4,8 +4,8 @@
     <?php echo link_to('Logout','@sf_guard_signout', array('class'=>'button negative')) ?>
     It's good you are here!
   <?php else: ?>
-    <?php echo link_to('login','@sf_guard_signin', array('class'=>'button positive')) ?>
-    <?php echo link_to('sign up','@sf_guard_signin', array('class'=>'button')) ?>
+    <?php echo link_to('Login','@sf_guard_signin', array('class'=>'button positive', 'title'=>'You already have an account? Click here')) ?>
+    <?php echo link_to('Register','@apply', array('class'=>'button', 'title'=>'You don\'t have an account yet? Click here')) ?>
     It's no fun being anonymous...
   <?php endif; ?>
 </p>

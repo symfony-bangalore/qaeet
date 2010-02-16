@@ -11,7 +11,7 @@
  * @property string $comment
  * @property string $answer
  * @property string $question
- * @property Author $Author
+ * @property sfGuardUserProfile $Author
  * @property Question $Question
  * @property Answer $ReplyTo
  * @property Doctrine_Collection $Replies
@@ -22,7 +22,7 @@
  * @method string              getComment()     Returns the current record's "comment" value
  * @method string              getAnswer()      Returns the current record's "answer" value
  * @method string              getQuestion()    Returns the current record's "question" value
- * @method Author              getAuthor()      Returns the current record's "Author" value
+ * @method sfGuardUserProfile  getAuthor()      Returns the current record's "Author" value
  * @method Question            getQuestion()    Returns the current record's "Question" value
  * @method Answer              getReplyTo()     Returns the current record's "ReplyTo" value
  * @method Doctrine_Collection getReplies()     Returns the current record's "Replies" collection
@@ -47,8 +47,9 @@ abstract class BaseAnswer extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('answer');
-        $this->hasColumn('author_id', 'integer', null, array(
+        $this->hasColumn('author_id', 'integer', 4, array(
              'type' => 'integer',
+             'length' => '4',
              ));
         $this->hasColumn('reply_id', 'integer', null, array(
              'type' => 'integer',
@@ -70,7 +71,7 @@ abstract class BaseAnswer extends sfDoctrineRecord
     public function setUp()
     {
         parent::setUp();
-        $this->hasOne('Author', array(
+        $this->hasOne('sfGuardUserProfile as Author', array(
              'local' => 'author_id',
              'foreign' => 'id'));
 

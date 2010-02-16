@@ -35,9 +35,11 @@ all:
     # Enable the database manager
     use_database:           true
 
-    enabled_modules:        [default, sfGuardAuth]
+    enabled_modules:        [default, sfGuardAuth, sfApply]
     
     login_module:           sfGuardAuth
     login_action:           signin    
     secure_module:          sfGuardAuth
     secure_action:          secure
+
+    i18n: on  
