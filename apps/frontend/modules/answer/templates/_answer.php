@@ -1,9 +1,14 @@
 <div class='answer_item <?php echo $answer->isBest()?' answer_item_best':'' ?>'>  
   <p class='comment'>
-    <?php echo $answer->getDateTimeObject('created_at')->format('m/d/Y') ?> - <?php echo $answer->Author ?>: <?php echo $answer->getComment() ?>    
+    <?php echo $answer->getDateTimeObject('created_at')->format('m/d/Y') ?>
+     - <?php echo $answer->getAuthorName() ?>
+     : <?php echo $answer->getComment() ?>
   </p>
 
-  <div class='answer_item_content'>    
+  <?php if (!$answer->isNewer()): ?>
+    <div class='answer_item_float'>   
+  <?php endif; ?>
+   
     <P>
       <?php echo link_to('Branch to own thread&nbsp;<img src="/icon/arrow-branch-090.png"/>', 'answer/branch?id='.$answer->id, array('class'=>'button branch_button','title'=>'This answer is very helpful, but a little off topic. Click here to give it an own life!')) ?>
       <?php if (!$answer->isBest()): ?>
@@ -23,5 +28,8 @@
         </div>
       <?php endif; ?>
     <?php endif; ?>
-  </div>
+
+  <?php if (!$answer->isNewer()): ?>
+    </div>
+  <?php endif; ?>
 </div>

@@ -22,4 +22,15 @@ class Answer extends BaseAnswer
     $this->Question->BestAnswer = $this;
     $this->Question->save();
   }
+  
+  public function isNewer()
+  {
+    return $this->Question->BestAnswer 
+      && $this->Question->BestAnswer->created_at < $this->created_at;
+  }
+  
+  public function getAuthorName()
+  {
+    return $this->author_id ? $this->Author->fullname : 'Anonymous';
+  }
 }

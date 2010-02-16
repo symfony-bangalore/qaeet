@@ -1,4 +1,5 @@
-<h1><?php echo $question->getTitle() ?></h1>
-<p><?php echo $question->getBody() ?></p>
-<hr/>
+<?php slot('title', sprintf('%s', $question->getTitle())) ?>
+
+<h2>Add Answer</h2>
+
 <?php include_partial('form', array('form' => $form)) ?>

@@ -10,7 +10,7 @@ on <?php echo $question->getDateTimeObject('created_at')->format('m/d/Y') ?></p>
 <div class='answer answer_best'>
   <?php echo Toolkit::HTMLify($sf_data->getRaw('question')->BestAnswer->answer) ?>
 </div>
-<p>Best answer (yet) by <?php echo $question->BestAnswer->Author ?> 
+<p>Best answer (yet) by <?php echo $question->BestAnswer->getAuthorName() ?> 
 on <?php echo $question->BestAnswer->getDateTimeObject('created_at')->format('m/d/Y') ?></p>
 <?php endif; ?>
 
@@ -26,11 +26,9 @@ on <?php echo $question->BestAnswer->getDateTimeObject('created_at')->format('m/
 
 <hr/>
 
-<ul>
 <?php foreach ($question->Answers as $answer): ?>
-  <li class='answer'>
+  <div class='comment'>
     <?php echo include_partial('answer/answer',array('answer'=>$answer)); ?>
-  </li>
+  </div>
 <?php endforeach; ?>
-</ul>
 

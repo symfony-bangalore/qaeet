@@ -96,6 +96,11 @@ class answerActions extends sfActions
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
     {
+      if ($this->getUser()->getGuardUser() && $this->getUser()->getGuardUser()->getProfile())
+      {
+        $answer = $form->getObject();
+        $answer->Author = $this->getUser()->getGuardUser()->getProfile();
+      }
       $answer = $form->save();
 
       $this->redirect('question/show?id='.$answer->Question->getId());
