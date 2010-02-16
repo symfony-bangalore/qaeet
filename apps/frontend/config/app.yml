@@ -2,7 +2,7 @@ all:
   sfApplyPlugin:
     from:
       email: "no-reply@symfony-bangalore.org"
-      fullname: "Symfony Bangalore Administrator sends you"
+      fullname: "Symfony Bangalore Administrator"
 
     # Configure the gmail symfony.bangalore account to use for sending mails
     mail_transport_class: Zend_Mail_Transport_Smtp

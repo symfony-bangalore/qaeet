@@ -11,7 +11,11 @@
   <body>
   
     <div id="doc4" class="yui-t3">
-      <div id="hd" role="banner"><?php echo link_to("<img src='/images/qanda.png'/>","/") ?><h1><?php include_slot('title', 'QAeet - Symfony Bangalore') ?></h1></div>
+      <div id="hd" role="banner">
+        <?php echo link_to("<img src='/images/answer.png'/>","/",array('style'=>'float:right'))
+                .link_to("<img src='/images/question.png'/>","/",array('style'=>'float:left')) ?>
+        <h1><?php include_slot('title', 'QAeet - Symfony Bangalore') ?></h1>
+      </div>
              
       <div id="bd" role="main"> 
         <div id="yui-main"> 

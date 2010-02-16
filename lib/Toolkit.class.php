@@ -38,20 +38,27 @@ class Toolkit
     $renderCode = false;
     foreach ($tokens as $token)
     {
-      switch ($token[0])
+      if (is_array($token))
       {
-        case T_OPEN_TAG:
-          $state = 'code';
-          $code = $token[1];
-          break;
-        case T_CLOSE_TAG:
-          $code .= $token[1];
-          $text .= highlight_string($code, true);
-          $code = '';
-          $state = 'text';
-          break;          
-        default:
-          $$state .= $token[1];
+        switch ($token[0])
+        {
+          case T_OPEN_TAG:
+            $state = 'code';
+            $code = $token[1];
+            break;
+          case T_CLOSE_TAG:
+            $code .= $token[1];
+            $text .= highlight_string($code, true);
+            $code = '';
+            $state = 'text';
+            break;          
+          default:
+            $$state .= $token[1];
+        }
+      }
+      else
+      {
+        $$state .= $token;
       }
     }
     

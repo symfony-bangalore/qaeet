@@ -67,12 +67,12 @@ Answer:
   actAs:
     Timestampable:
   columns:
+    question: string
+    answer: string
+    comment: string
     author_id: integer(4)
     reply_id: integer
     question_id: integer
-    comment: string
-    answer: string
-    question: string
   relations:
     Author:
       class: sfGuardUserProfile

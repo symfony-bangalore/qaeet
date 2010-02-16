@@ -2,6 +2,8 @@
 <?php echo __(<<<EOM
 <p>
 Thanks for applying for an account for Symfony Bangalore!
+
+If you have any troubles, don't reply to this mail but send a mail to sjoerddejong@ymail.com for support.
 </p>
 <p>
 To prevent abuse of the site, we require that you activate your

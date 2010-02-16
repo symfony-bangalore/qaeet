@@ -19,5 +19,6 @@ class QuestionForm extends BaseQuestionForm
       $this['created_at'],
       $this['updated_at']
     );
+    $this->validatorSchema['question'] = new sfValidatorStringQuestion();
   }
 }

@@ -16,24 +16,24 @@ abstract class BaseAnswerForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'          => new sfWidgetFormInputHidden(),
+      'question'    => new sfWidgetFormTextarea(),
+      'answer'      => new sfWidgetFormTextarea(),
+      'comment'     => new sfWidgetFormTextarea(),
       'author_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Author'), 'add_empty' => true)),
       'reply_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('ReplyTo'), 'add_empty' => true)),
       'question_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Question'), 'add_empty' => true)),
-      'comment'     => new sfWidgetFormTextarea(),
-      'answer'      => new sfWidgetFormTextarea(),
-      'question'    => new sfWidgetFormTextarea(),
       'created_at'  => new sfWidgetFormDateTime(),
       'updated_at'  => new sfWidgetFormDateTime(),
     ));
 
     $this->setValidators(array(
       'id'          => new sfValidatorDoctrineChoice(array('model' => $this->getModelName(), 'column' => 'id', 'required' => false)),
+      'question'    => new sfValidatorString(array('required' => false)),
+      'answer'      => new sfValidatorString(array('required' => false)),
+      'comment'     => new sfValidatorString(array('required' => false)),
       'author_id'   => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Author'), 'required' => false)),
       'reply_id'    => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('ReplyTo'), 'required' => false)),
       'question_id' => new sfValidatorDoctrineChoice(array('model' => $this->getRelatedModelName('Question'), 'required' => false)),
-      'comment'     => new sfValidatorString(array('required' => false)),
-      'answer'      => new sfValidatorString(array('required' => false)),
-      'question'    => new sfValidatorString(array('required' => false)),
       'created_at'  => new sfValidatorDateTime(),
       'updated_at'  => new sfValidatorDateTime(),
     ));
