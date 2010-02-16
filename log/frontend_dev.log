@@ -10138,3 +10138,898 @@ Feb 16 03:30:00 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_qu
 Feb 16 03:30:00 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 97.74 ms (1)
 Feb 16 03:30:00 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 144.29 ms (1)
 Feb 16 03:30:00 symfony [info] {sfWebResponse} Send content (76269 o)
+Feb 16 04:47:21 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 04:47:21 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 04:47:21 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 04:47:21 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /answer/new/question_id/1 with parameters array (  'module' => 'answer',  'action' => 'new',  'question_id' => '1',)
+Feb 16 04:47:21 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 04:47:21 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 04:47:21 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 04:47:21 symfony [info] {answerActions} Call "answerActions->executeNew()"
+Feb 16 04:47:22 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 04:47:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) LIMIT 1 - (1)
+Feb 16 04:47:22 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/newSuccess.php"
+Feb 16 04:47:22 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_form.php"
+Feb 16 04:47:22 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.name AS a__name FROM author a - ()
+Feb 16 04:47:22 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a - ()
+Feb 16 04:47:22 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 04:47:22 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 04:47:22 symfony [info] {main} Get slot "title"
+Feb 16 04:47:22 symfony [info] {main} Get slot "title"
+Feb 16 04:47:22 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 04:47:22 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 04:47:22 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 04:47:22 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 04:47:22 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 04:47:22 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 04:47:22 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 04:47:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 04:47:22 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 04:47:22 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 16 04:47:22 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 04:47:22 symfony [info] {sfWebDebugLogger} Configuration 1605.76 ms (9)
+Feb 16 04:47:22 symfony [info] {sfWebDebugLogger} Factories 783.67 ms (1)
+Feb 16 04:47:22 symfony [info] {sfWebDebugLogger} Action "answer/new" 328.93 ms (1)
+Feb 16 04:47:22 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.36 ms (9)
+Feb 16 04:47:22 symfony [info] {sfWebDebugLogger} View "Success" for "answer/new" 795.48 ms (1)
+Feb 16 04:47:22 symfony [info] {sfWebDebugLogger} Partial "answer/_form" 354.43 ms (1)
+Feb 16 04:47:22 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 5.54 ms (1)
+Feb 16 04:47:22 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 57.32 ms (1)
+Feb 16 04:47:22 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 96.61 ms (1)
+Feb 16 04:47:22 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 142.42 ms (1)
+Feb 16 04:47:23 symfony [info] {sfWebResponse} Send content (76183 o)
+Feb 16 04:51:00 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 04:51:00 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 04:51:00 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 04:51:00 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /answer/new/question_id/1 with parameters array (  'module' => 'answer',  'action' => 'new',  'question_id' => '1',)
+Feb 16 04:51:00 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 04:51:00 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 04:51:00 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 04:51:00 symfony [info] {answerActions} Call "answerActions->executeNew()"
+Feb 16 04:51:00 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 04:51:00 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) LIMIT 1 - (1)
+Feb 16 04:51:00 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/newSuccess.php"
+Feb 16 04:51:00 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_form.php"
+Feb 16 04:51:00 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.name AS a__name FROM author a - ()
+Feb 16 04:51:00 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a - ()
+Feb 16 04:51:01 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 04:51:01 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 04:51:01 symfony [info] {main} Get slot "title"
+Feb 16 04:51:01 symfony [info] {main} Get slot "title"
+Feb 16 04:51:01 symfony [err] {sfConfigurationException} The component does not exist: "sfGuardAuth", "signin".
+Feb 16 04:51:01 symfony [info] {sfWebResponse} Send status "HTTP/1.1 500 Internal Server Error"
+Feb 16 04:51:01 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 04:51:01 symfony [info] {sfWebDebugLogger} Configuration 35.41 ms (9)
+Feb 16 04:51:01 symfony [info] {sfWebDebugLogger} Factories 140.95 ms (1)
+Feb 16 04:51:01 symfony [info] {sfWebDebugLogger} Action "answer/new" 488.09 ms (1)
+Feb 16 04:51:01 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.23 ms (4)
+Feb 16 04:51:01 symfony [info] {sfWebDebugLogger} View "Success" for "answer/new" 741.24 ms (1)
+Feb 16 04:51:01 symfony [info] {sfWebDebugLogger} Partial "answer/_form" 418.20 ms (1)
+Feb 16 04:59:38 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 04:59:38 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 04:59:38 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 04:59:38 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /answer/new/question_id/1 with parameters array (  'module' => 'answer',  'action' => 'new',  'question_id' => '1',)
+Feb 16 04:59:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 04:59:38 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 04:59:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 04:59:38 symfony [info] {answerActions} Call "answerActions->executeNew()"
+Feb 16 04:59:38 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 04:59:38 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) LIMIT 1 - (1)
+Feb 16 04:59:38 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/newSuccess.php"
+Feb 16 04:59:38 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_form.php"
+Feb 16 04:59:38 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.name AS a__name FROM author a - ()
+Feb 16 04:59:38 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a - ()
+Feb 16 04:59:38 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 04:59:38 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 04:59:38 symfony [info] {main} Get slot "title"
+Feb 16 04:59:38 symfony [info] {main} Get slot "title"
+Feb 16 04:59:38 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 04:59:38 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 04:59:38 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 04:59:38 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 04:59:38 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 04:59:39 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 04:59:39 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 04:59:39 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 04:59:39 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 04:59:39 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 04:59:39 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 16 04:59:39 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 04:59:39 symfony [info] {sfWebDebugLogger} Configuration 31.18 ms (9)
+Feb 16 04:59:39 symfony [info] {sfWebDebugLogger} Factories 137.33 ms (1)
+Feb 16 04:59:39 symfony [info] {sfWebDebugLogger} Action "answer/new" 333.44 ms (1)
+Feb 16 04:59:39 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.35 ms (9)
+Feb 16 04:59:39 symfony [info] {sfWebDebugLogger} View "Success" for "answer/new" 755.27 ms (1)
+Feb 16 04:59:39 symfony [info] {sfWebDebugLogger} Partial "answer/_form" 350.43 ms (1)
+Feb 16 04:59:39 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 5.78 ms (1)
+Feb 16 04:59:39 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 8.24 ms (1)
+Feb 16 04:59:39 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 58.95 ms (1)
+Feb 16 04:59:39 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 103.40 ms (1)
+Feb 16 04:59:39 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 142.43 ms (1)
+Feb 16 04:59:39 symfony [info] {sfWebResponse} Send content (77447 o)
+Feb 16 05:00:38 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:00:38 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:00:38 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:00:38 symfony [info] {sfPatternRouting} Match route "default" (/:module/:action/*) for /answer/new/question_id/1 with parameters array (  'module' => 'answer',  'action' => 'new',  'question_id' => '1',)
+Feb 16 05:00:38 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:00:38 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:00:38 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:00:38 symfony [info] {answerActions} Call "answerActions->executeNew()"
+Feb 16 05:00:38 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:00:38 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) LIMIT 1 - (1)
+Feb 16 05:00:38 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/newSuccess.php"
+Feb 16 05:00:38 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\modules/answer/templates/_form.php"
+Feb 16 05:00:38 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.name AS a__name FROM author a - ()
+Feb 16 05:00:38 symfony [info] {Doctrine_Connection_Mysql} query : SELECT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a - ()
+Feb 16 05:00:39 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:00:39 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:00:39 symfony [info] {main} Get slot "title"
+Feb 16 05:00:39 symfony [info] {main} Get slot "title"
+Feb 16 05:00:39 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 05:00:39 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 05:00:39 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 05:00:39 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 05:00:39 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 05:00:39 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 05:00:39 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 05:00:39 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 05:00:39 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:00:39 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:00:39 symfony [info] {sfWebResponse} Send status "HTTP/1.1 200 OK"
+Feb 16 05:00:39 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:00:39 symfony [info] {sfWebDebugLogger} Configuration 25.33 ms (9)
+Feb 16 05:00:39 symfony [info] {sfWebDebugLogger} Factories 130.22 ms (1)
+Feb 16 05:00:39 symfony [info] {sfWebDebugLogger} Action "answer/new" 333.51 ms (1)
+Feb 16 05:00:39 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.35 ms (9)
+Feb 16 05:00:39 symfony [info] {sfWebDebugLogger} View "Success" for "answer/new" 739.14 ms (1)
+Feb 16 05:00:39 symfony [info] {sfWebDebugLogger} Partial "answer/_form" 354.19 ms (1)
+Feb 16 05:00:39 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 6.12 ms (1)
+Feb 16 05:00:39 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 6.91 ms (1)
+Feb 16 05:00:39 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 56.44 ms (1)
+Feb 16 05:00:39 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 94.16 ms (1)
+Feb 16 05:00:39 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 143.98 ms (1)
+Feb 16 05:00:39 symfony [info] {sfWebResponse} Send content (77467 o)
+Feb 16 05:00:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:00:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:00:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:00:49 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:00:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:00:49 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:00:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:00:49 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:00:49 symfony [info] {sfPHPView} Render "C:/weett/qaeet/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 16 05:00:50 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:00:50 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:00:50 symfony [info] {main} Get slot "title"
+Feb 16 05:00:50 symfony [info] {main} Get slot "title"
+Feb 16 05:00:50 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 05:00:50 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 05:00:50 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 05:00:50 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:00:50 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 05:00:50 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 05:00:50 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 05:00:50 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 05:00:50 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 05:00:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:00:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:00:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Feb 16 05:00:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:00:50 symfony [info] {sfWebDebugLogger} Configuration 242.82 ms (10)
+Feb 16 05:00:50 symfony [info] {sfWebDebugLogger} Factories 139.07 ms (1)
+Feb 16 05:00:50 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 213.60 ms (1)
+Feb 16 05:00:50 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 679.08 ms (1)
+Feb 16 05:00:50 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 6.62 ms (1)
+Feb 16 05:00:50 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 6.28 ms (1)
+Feb 16 05:00:50 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 246.61 ms (1)
+Feb 16 05:00:50 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.24 ms (6)
+Feb 16 05:00:50 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 98.15 ms (1)
+Feb 16 05:00:50 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 165.91 ms (1)
+Feb 16 05:00:50 symfony [info] {sfWebResponse} Send content (54612 o)
+Feb 16 05:01:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:01:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:01:02 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:01:02 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:01:02 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:01:02 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:01:02 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:01:02 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:01:02 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:01:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ? AND s.is_active = ?) - (admin, 1)
+Feb 16 05:01:02 symfony [info] {myUser} User is authenticated
+Feb 16 05:01:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:01:02 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:01:03 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Feb 16 05:01:03 symfony [info] {myUser} Add credential(s) "admin"
+Feb 16 05:01:03 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-02-16 05:01:03, 2010-02-16 05:01:03, 1)
+Feb 16 05:01:03 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 16 05:01:03 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (created_at < ?) - (2010-02-01 05:01:03)
+Feb 16 05:01:03 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (user_id = ?) - (1)
+Feb 16 05:01:03 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO sf_guard_remember_key (remember_key, user_id, ip_address, created_at, updated_at) VALUES (?, ?, ?, ?, ?) - (5a95b1dc5a41fe25ad14b8910ad9ba5d, 1, 127.0.0.1, 2010-02-16 05:01:03, 2010-02-16 05:01:03)
+Feb 16 05:01:03 symfony [info] {sfFrontWebController} Redirect to "http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:01:03 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Feb 16 05:01:03 symfony [info] {sfWebResponse} Send header "Location: http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:01:03 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:01:03 symfony [info] {sfWebResponse} Send cookie "sfRemember": "5a95b1dc5a41fe25ad14b8910ad9ba5d"
+Feb 16 05:01:03 symfony [info] {sfWebDebugLogger} Configuration 32.22 ms (8)
+Feb 16 05:01:03 symfony [info] {sfWebDebugLogger} Factories 141.16 ms (1)
+Feb 16 05:01:03 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 784.37 ms (1)
+Feb 16 05:01:03 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.47 ms (10)
+Feb 16 05:01:03 symfony [info] {sfWebResponse} Send content (116 o)
+Feb 16 05:01:05 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:01:05 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:01:05 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:01:05 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:01:06 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:01:06 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:01:06 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:01:06 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:01:06 symfony [info] {sfPHPView} Render "C:/weett/qaeet/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 16 05:01:06 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:01:06 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:01:06 symfony [info] {main} Get slot "title"
+Feb 16 05:01:06 symfony [info] {main} Get slot "title"
+Feb 16 05:01:06 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 05:01:06 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 05:01:06 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 05:01:06 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:01:06 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 05:01:06 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 05:01:06 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 05:01:06 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 05:01:06 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 05:01:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:01:06 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:01:06 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Feb 16 05:01:06 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:01:06 symfony [info] {sfWebDebugLogger} Configuration 61.98 ms (9)
+Feb 16 05:01:06 symfony [info] {sfWebDebugLogger} Factories 209.20 ms (1)
+Feb 16 05:01:06 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 39.47 ms (1)
+Feb 16 05:01:06 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 635.65 ms (1)
+Feb 16 05:01:06 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 6.17 ms (1)
+Feb 16 05:01:06 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 8.38 ms (1)
+Feb 16 05:01:06 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 242.09 ms (1)
+Feb 16 05:01:06 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.26 ms (6)
+Feb 16 05:01:06 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 99.06 ms (1)
+Feb 16 05:01:06 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 171.69 ms (1)
+Feb 16 05:01:06 symfony [info] {sfWebResponse} Send content (54483 o)
+Feb 16 05:08:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:08:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:08:50 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:08:50 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:08:50 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:08:50 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:08:50 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:08:50 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:08:50 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:08:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ? AND s.is_active = ?) - (admin, 1)
+Feb 16 05:08:50 symfony [info] {myUser} User is authenticated
+Feb 16 05:08:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:08:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:08:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Feb 16 05:08:50 symfony [info] {myUser} Add credential(s) "admin"
+Feb 16 05:08:50 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-02-16 05:08:50, 2010-02-16 05:08:50, 1)
+Feb 16 05:08:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 16 05:08:50 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (created_at < ?) - (2010-02-01 05:08:50)
+Feb 16 05:08:50 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (user_id = ?) - (1)
+Feb 16 05:08:50 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO sf_guard_remember_key (remember_key, user_id, ip_address, created_at, updated_at) VALUES (?, ?, ?, ?, ?) - (dd8ac23175af6b63093486b8d2e5b407, 1, 127.0.0.1, 2010-02-16 05:08:50, 2010-02-16 05:08:50)
+Feb 16 05:08:51 symfony [info] {sfFrontWebController} Redirect to "http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:08:51 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Feb 16 05:08:51 symfony [info] {sfWebResponse} Send header "Location: http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:08:51 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:08:51 symfony [info] {sfWebResponse} Send cookie "sfRemember": "dd8ac23175af6b63093486b8d2e5b407"
+Feb 16 05:08:51 symfony [info] {sfWebDebugLogger} Configuration 30.33 ms (8)
+Feb 16 05:08:51 symfony [info] {sfWebDebugLogger} Factories 141.54 ms (1)
+Feb 16 05:08:51 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 795.42 ms (1)
+Feb 16 05:08:51 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.43 ms (10)
+Feb 16 05:08:51 symfony [info] {sfWebResponse} Send content (116 o)
+Feb 16 05:08:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:08:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:08:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:08:53 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:08:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:08:53 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:08:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:08:53 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:08:53 symfony [info] {sfPHPView} Render "C:/weett/qaeet/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 16 05:08:53 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:08:53 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:08:53 symfony [info] {main} Get slot "title"
+Feb 16 05:08:53 symfony [info] {main} Get slot "title"
+Feb 16 05:08:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 05:08:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 05:08:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 05:08:53 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:08:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 05:08:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 05:08:54 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 05:08:54 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 05:08:54 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 05:08:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:08:54 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:08:54 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Feb 16 05:08:54 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:08:54 symfony [info] {sfWebDebugLogger} Configuration 27.56 ms (9)
+Feb 16 05:08:54 symfony [info] {sfWebDebugLogger} Factories 132.22 ms (1)
+Feb 16 05:08:54 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 34.17 ms (1)
+Feb 16 05:08:54 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 611.47 ms (1)
+Feb 16 05:08:54 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 5.72 ms (1)
+Feb 16 05:08:54 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 8.67 ms (1)
+Feb 16 05:08:54 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 236.99 ms (1)
+Feb 16 05:08:54 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.24 ms (6)
+Feb 16 05:08:54 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 97.11 ms (1)
+Feb 16 05:08:54 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 163.79 ms (1)
+Feb 16 05:08:54 symfony [info] {sfWebResponse} Send content (54473 o)
+Feb 16 05:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:09:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:09:15 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:09:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:09:15 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:09:15 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:09:15 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:09:16 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:09:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ? AND s.is_active = ?) - (admin, 1)
+Feb 16 05:09:16 symfony [info] {myUser} User is authenticated
+Feb 16 05:09:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:09:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:09:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Feb 16 05:09:16 symfony [info] {myUser} Add credential(s) "admin"
+Feb 16 05:09:16 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-02-16 05:09:16, 2010-02-16 05:09:16, 1)
+Feb 16 05:09:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 16 05:09:16 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (created_at < ?) - (2010-02-01 05:09:16)
+Feb 16 05:09:16 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (user_id = ?) - (1)
+Feb 16 05:09:16 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO sf_guard_remember_key (remember_key, user_id, ip_address, created_at, updated_at) VALUES (?, ?, ?, ?, ?) - (8b4bd930292f2e35b1841040f7d5c936, 1, 127.0.0.1, 2010-02-16 05:09:16, 2010-02-16 05:09:16)
+Feb 16 05:09:16 symfony [info] {sfFrontWebController} Redirect to "http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:09:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Feb 16 05:09:16 symfony [info] {sfWebResponse} Send header "Location: http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:09:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:09:16 symfony [info] {sfWebResponse} Send cookie "sfRemember": "8b4bd930292f2e35b1841040f7d5c936"
+Feb 16 05:09:16 symfony [info] {sfWebDebugLogger} Configuration 23.09 ms (8)
+Feb 16 05:09:16 symfony [info] {sfWebDebugLogger} Factories 141.98 ms (1)
+Feb 16 05:09:16 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 739.99 ms (1)
+Feb 16 05:09:16 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.40 ms (10)
+Feb 16 05:09:16 symfony [info] {sfWebResponse} Send content (116 o)
+Feb 16 05:09:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:09:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:09:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:09:19 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:09:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:09:19 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:09:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:09:19 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:09:19 symfony [info] {sfPHPView} Render "C:/weett/qaeet/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 16 05:09:19 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:09:19 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:09:19 symfony [info] {main} Get slot "title"
+Feb 16 05:09:19 symfony [info] {main} Get slot "title"
+Feb 16 05:09:19 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 05:09:19 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 05:09:19 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 05:09:19 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:09:19 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 05:09:19 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 05:09:19 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 05:09:19 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 05:09:20 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 05:09:20 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:09:20 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:09:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Feb 16 05:09:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:09:20 symfony [info] {sfWebDebugLogger} Configuration 28.03 ms (9)
+Feb 16 05:09:20 symfony [info] {sfWebDebugLogger} Factories 166.96 ms (1)
+Feb 16 05:09:20 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 45.67 ms (1)
+Feb 16 05:09:20 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 801.39 ms (1)
+Feb 16 05:09:20 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 8.23 ms (1)
+Feb 16 05:09:20 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 10.46 ms (1)
+Feb 16 05:09:20 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 274.55 ms (1)
+Feb 16 05:09:20 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.32 ms (6)
+Feb 16 05:09:20 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 99.92 ms (1)
+Feb 16 05:09:20 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 266.47 ms (1)
+Feb 16 05:09:20 symfony [info] {sfWebResponse} Send content (54483 o)
+Feb 16 05:09:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:09:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:09:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:09:49 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:09:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:09:49 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:09:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:09:49 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:09:50 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:09:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ? AND s.is_active = ?) - (admin, 1)
+Feb 16 05:09:50 symfony [info] {myUser} User is authenticated
+Feb 16 05:09:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:09:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:09:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Feb 16 05:09:50 symfony [info] {myUser} Add credential(s) "admin"
+Feb 16 05:09:50 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-02-16 05:09:50, 2010-02-16 05:09:50, 1)
+Feb 16 05:09:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 16 05:09:50 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (created_at < ?) - (2010-02-01 05:09:50)
+Feb 16 05:09:50 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (user_id = ?) - (1)
+Feb 16 05:09:50 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO sf_guard_remember_key (remember_key, user_id, ip_address, created_at, updated_at) VALUES (?, ?, ?, ?, ?) - (ead0cecd2a92a0f5d46f1c896bb7fdf5, 1, 127.0.0.1, 2010-02-16 05:09:50, 2010-02-16 05:09:50)
+Feb 16 05:09:50 symfony [info] {sfFrontWebController} Redirect to "http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:09:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Feb 16 05:09:50 symfony [info] {sfWebResponse} Send header "Location: http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:09:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:09:50 symfony [info] {sfWebResponse} Send cookie "sfRemember": "ead0cecd2a92a0f5d46f1c896bb7fdf5"
+Feb 16 05:09:50 symfony [info] {sfWebDebugLogger} Configuration 25.76 ms (8)
+Feb 16 05:09:50 symfony [info] {sfWebDebugLogger} Factories 138.62 ms (1)
+Feb 16 05:09:50 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 735.62 ms (1)
+Feb 16 05:09:50 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.42 ms (10)
+Feb 16 05:09:50 symfony [info] {sfWebResponse} Send content (116 o)
+Feb 16 05:09:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:09:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:09:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:09:53 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:09:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:09:53 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:09:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:09:53 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:09:53 symfony [info] {sfPHPView} Render "C:/weett/qaeet/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 16 05:09:53 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:09:53 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:09:53 symfony [info] {main} Get slot "title"
+Feb 16 05:09:53 symfony [info] {main} Get slot "title"
+Feb 16 05:09:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 05:09:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 05:09:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 05:09:53 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:09:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 05:09:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 05:09:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 05:09:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 05:09:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 05:09:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:09:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:09:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Feb 16 05:09:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:09:53 symfony [info] {sfWebDebugLogger} Configuration 28.20 ms (9)
+Feb 16 05:09:53 symfony [info] {sfWebDebugLogger} Factories 227.77 ms (1)
+Feb 16 05:09:53 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 34.22 ms (1)
+Feb 16 05:09:53 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 634.12 ms (1)
+Feb 16 05:09:53 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 5.61 ms (1)
+Feb 16 05:09:53 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 7.48 ms (1)
+Feb 16 05:09:53 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 230.46 ms (1)
+Feb 16 05:09:53 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.26 ms (6)
+Feb 16 05:09:53 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 104.65 ms (1)
+Feb 16 05:09:53 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 188.81 ms (1)
+Feb 16 05:09:54 symfony [info] {sfWebResponse} Send content (54492 o)
+Feb 16 05:10:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:10:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:10:49 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:10:49 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:10:49 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:10:49 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:10:49 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:10:49 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:10:50 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:10:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ? AND s.is_active = ?) - (admin, 1)
+Feb 16 05:10:50 symfony [info] {myUser} User is authenticated
+Feb 16 05:10:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:10:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:10:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Feb 16 05:10:50 symfony [info] {myUser} Add credential(s) "admin"
+Feb 16 05:10:50 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-02-16 05:10:50, 2010-02-16 05:10:50, 1)
+Feb 16 05:10:50 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 16 05:10:50 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (created_at < ?) - (2010-02-01 05:10:50)
+Feb 16 05:10:50 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (user_id = ?) - (1)
+Feb 16 05:10:50 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO sf_guard_remember_key (remember_key, user_id, ip_address, created_at, updated_at) VALUES (?, ?, ?, ?, ?) - (6d8e8d9713112ddf9f711268232b7f0f, 1, 127.0.0.1, 2010-02-16 05:10:50, 2010-02-16 05:10:50)
+Feb 16 05:10:50 symfony [info] {sfFrontWebController} Redirect to "http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:10:50 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Feb 16 05:10:50 symfony [info] {sfWebResponse} Send header "Location: http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:10:50 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:10:50 symfony [info] {sfWebResponse} Send cookie "sfRemember": "6d8e8d9713112ddf9f711268232b7f0f"
+Feb 16 05:10:50 symfony [info] {sfWebDebugLogger} Configuration 15.07 ms (8)
+Feb 16 05:10:50 symfony [info] {sfWebDebugLogger} Factories 116.51 ms (1)
+Feb 16 05:10:50 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 727.16 ms (1)
+Feb 16 05:10:50 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.40 ms (10)
+Feb 16 05:10:50 symfony [info] {sfWebResponse} Send content (116 o)
+Feb 16 05:10:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:10:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:10:53 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:10:53 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:10:53 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:10:53 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:10:53 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:10:53 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:10:53 symfony [info] {sfPHPView} Render "C:/weett/qaeet/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 16 05:10:53 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:10:53 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:10:53 symfony [info] {main} Get slot "title"
+Feb 16 05:10:53 symfony [info] {main} Get slot "title"
+Feb 16 05:10:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 05:10:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 05:10:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 05:10:53 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:10:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 05:10:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 05:10:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 05:10:53 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 05:10:53 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 05:10:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:10:53 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:10:53 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Feb 16 05:10:53 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:10:53 symfony [info] {sfWebDebugLogger} Configuration 21.99 ms (9)
+Feb 16 05:10:53 symfony [info] {sfWebDebugLogger} Factories 157.96 ms (1)
+Feb 16 05:10:53 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 33.60 ms (1)
+Feb 16 05:10:53 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 599.88 ms (1)
+Feb 16 05:10:53 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 5.67 ms (1)
+Feb 16 05:10:53 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 7.14 ms (1)
+Feb 16 05:10:53 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 226.11 ms (1)
+Feb 16 05:10:53 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.26 ms (6)
+Feb 16 05:10:53 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 94.32 ms (1)
+Feb 16 05:10:53 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 169.50 ms (1)
+Feb 16 05:10:54 symfony [info] {sfWebResponse} Send content (54501 o)
+Feb 16 05:12:08 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:12:08 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:12:08 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:12:08 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:12:08 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:12:08 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:12:08 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:12:08 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:12:09 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:12:09 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ? AND s.is_active = ?) - (admin, 1)
+Feb 16 05:12:09 symfony [info] {myUser} User is authenticated
+Feb 16 05:12:09 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:12:09 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:12:09 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Feb 16 05:12:09 symfony [info] {myUser} Add credential(s) "admin"
+Feb 16 05:12:09 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-02-16 05:12:09, 2010-02-16 05:12:09, 1)
+Feb 16 05:12:09 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 16 05:12:09 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (created_at < ?) - (2010-02-01 05:12:09)
+Feb 16 05:12:09 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (user_id = ?) - (1)
+Feb 16 05:12:09 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO sf_guard_remember_key (remember_key, user_id, ip_address, created_at, updated_at) VALUES (?, ?, ?, ?, ?) - (2f40edbcf741053a88d1313df1f8574f, 1, 127.0.0.1, 2010-02-16 05:12:09, 2010-02-16 05:12:09)
+Feb 16 05:12:09 symfony [info] {sfFrontWebController} Redirect to "http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:12:09 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Feb 16 05:12:09 symfony [info] {sfWebResponse} Send header "Location: http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:12:09 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:12:09 symfony [info] {sfWebResponse} Send cookie "sfRemember": "2f40edbcf741053a88d1313df1f8574f"
+Feb 16 05:12:09 symfony [info] {sfWebDebugLogger} Configuration 25.83 ms (8)
+Feb 16 05:12:09 symfony [info] {sfWebDebugLogger} Factories 137.55 ms (1)
+Feb 16 05:12:09 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 733.95 ms (1)
+Feb 16 05:12:09 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.40 ms (10)
+Feb 16 05:12:09 symfony [info] {sfWebResponse} Send content (116 o)
+Feb 16 05:12:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:12:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:12:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:12:11 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:12:11 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:12:11 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:12:11 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:12:11 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:12:12 symfony [info] {sfPHPView} Render "C:/weett/qaeet/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 16 05:12:12 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:12:12 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:12:12 symfony [info] {main} Get slot "title"
+Feb 16 05:12:12 symfony [info] {main} Get slot "title"
+Feb 16 05:12:12 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 05:12:12 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 05:12:12 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 05:12:12 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:12:12 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 05:12:12 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 05:12:12 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 05:12:12 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 05:12:12 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 05:12:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:12:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:12:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Feb 16 05:12:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:12:12 symfony [info] {sfWebDebugLogger} Configuration 19.25 ms (9)
+Feb 16 05:12:12 symfony [info] {sfWebDebugLogger} Factories 117.24 ms (1)
+Feb 16 05:12:12 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 31.44 ms (1)
+Feb 16 05:12:12 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 601.87 ms (1)
+Feb 16 05:12:12 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 5.75 ms (1)
+Feb 16 05:12:12 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 7.74 ms (1)
+Feb 16 05:12:12 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 228.97 ms (1)
+Feb 16 05:12:12 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.23 ms (6)
+Feb 16 05:12:12 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 96.32 ms (1)
+Feb 16 05:12:12 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 162.61 ms (1)
+Feb 16 05:12:12 symfony [info] {sfWebResponse} Send content (54525 o)
+Feb 16 05:12:32 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:12:32 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:12:32 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:12:32 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:12:32 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:12:32 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:12:32 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:12:32 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:12:33 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:12:33 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ? AND s.is_active = ?) - (admin, 1)
+Feb 16 05:12:33 symfony [info] {myUser} User is authenticated
+Feb 16 05:12:33 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:12:33 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:12:33 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Feb 16 05:12:33 symfony [info] {myUser} Add credential(s) "admin"
+Feb 16 05:12:33 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-02-16 05:12:33, 2010-02-16 05:12:33, 1)
+Feb 16 05:12:33 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 16 05:12:33 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (created_at < ?) - (2010-02-01 05:12:33)
+Feb 16 05:12:33 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (user_id = ?) - (1)
+Feb 16 05:12:33 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO sf_guard_remember_key (remember_key, user_id, ip_address, created_at, updated_at) VALUES (?, ?, ?, ?, ?) - (d9107443c3f4d192c19b0d683c67c842, 1, 127.0.0.1, 2010-02-16 05:12:33, 2010-02-16 05:12:33)
+Feb 16 05:12:33 symfony [info] {sfFrontWebController} Redirect to "http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:12:33 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Feb 16 05:12:33 symfony [info] {sfWebResponse} Send header "Location: http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:12:33 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:12:33 symfony [info] {sfWebResponse} Send cookie "sfRemember": "d9107443c3f4d192c19b0d683c67c842"
+Feb 16 05:12:33 symfony [info] {sfWebDebugLogger} Configuration 16.54 ms (8)
+Feb 16 05:12:33 symfony [info] {sfWebDebugLogger} Factories 119.95 ms (1)
+Feb 16 05:12:33 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 719.18 ms (1)
+Feb 16 05:12:33 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.45 ms (10)
+Feb 16 05:12:33 symfony [info] {sfWebResponse} Send content (116 o)
+Feb 16 05:12:36 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:12:36 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:12:36 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:12:36 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:12:36 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:12:36 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:12:36 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:12:36 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:12:36 symfony [info] {sfPHPView} Render "C:/weett/qaeet/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 16 05:12:36 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:12:36 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:12:36 symfony [info] {main} Get slot "title"
+Feb 16 05:12:36 symfony [info] {main} Get slot "title"
+Feb 16 05:12:36 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 05:12:36 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 05:12:36 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 05:12:36 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:12:36 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 05:12:36 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 05:12:36 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 05:12:36 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 05:12:36 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 05:12:36 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:12:37 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:12:37 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Feb 16 05:12:37 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:12:37 symfony [info] {sfWebDebugLogger} Configuration 18.56 ms (9)
+Feb 16 05:12:37 symfony [info] {sfWebDebugLogger} Factories 116.50 ms (1)
+Feb 16 05:12:37 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 31.42 ms (1)
+Feb 16 05:12:37 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 829.43 ms (1)
+Feb 16 05:12:37 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 8.31 ms (1)
+Feb 16 05:12:37 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 11.16 ms (1)
+Feb 16 05:12:37 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 311.15 ms (1)
+Feb 16 05:12:37 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.35 ms (6)
+Feb 16 05:12:37 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 135.97 ms (1)
+Feb 16 05:12:37 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 256.58 ms (1)
+Feb 16 05:12:37 symfony [info] {sfWebResponse} Send content (54539 o)
+Feb 16 05:13:07 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:13:07 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:13:07 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:13:07 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:13:07 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:13:07 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:13:07 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:13:07 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:13:07 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:13:07 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ? AND s.is_active = ?) - (admin, 1)
+Feb 16 05:13:07 symfony [info] {myUser} User is authenticated
+Feb 16 05:13:07 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:13:07 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:13:07 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Feb 16 05:13:07 symfony [info] {myUser} Add credential(s) "admin"
+Feb 16 05:13:07 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-02-16 05:13:07, 2010-02-16 05:13:07, 1)
+Feb 16 05:13:07 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 16 05:13:07 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (created_at < ?) - (2010-02-01 05:13:07)
+Feb 16 05:13:07 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (user_id = ?) - (1)
+Feb 16 05:13:07 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO sf_guard_remember_key (remember_key, user_id, ip_address, created_at, updated_at) VALUES (?, ?, ?, ?, ?) - (cecdf791b7a9577879d5785cb05f54dc, 1, 127.0.0.1, 2010-02-16 05:13:07, 2010-02-16 05:13:07)
+Feb 16 05:13:07 symfony [info] {sfFrontWebController} Redirect to "http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:13:07 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Feb 16 05:13:07 symfony [info] {sfWebResponse} Send header "Location: http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:13:07 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:13:07 symfony [info] {sfWebResponse} Send cookie "sfRemember": "cecdf791b7a9577879d5785cb05f54dc"
+Feb 16 05:13:07 symfony [info] {sfWebDebugLogger} Configuration 15.08 ms (8)
+Feb 16 05:13:07 symfony [info] {sfWebDebugLogger} Factories 115.51 ms (1)
+Feb 16 05:13:07 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 707.96 ms (1)
+Feb 16 05:13:07 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.42 ms (10)
+Feb 16 05:13:07 symfony [info] {sfWebResponse} Send content (116 o)
+Feb 16 05:13:10 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:13:10 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:13:10 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:13:10 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:13:10 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:13:10 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:13:10 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:13:10 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:13:10 symfony [info] {sfPHPView} Render "C:/weett/qaeet/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 16 05:13:10 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:13:10 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:13:10 symfony [info] {main} Get slot "title"
+Feb 16 05:13:10 symfony [info] {main} Get slot "title"
+Feb 16 05:13:10 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 05:13:10 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 05:13:10 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 05:13:10 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:13:10 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 05:13:10 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 05:13:10 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 05:13:10 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 05:13:10 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 05:13:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:13:10 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:13:10 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Feb 16 05:13:10 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:13:10 symfony [info] {sfWebDebugLogger} Configuration 17.25 ms (9)
+Feb 16 05:13:10 symfony [info] {sfWebDebugLogger} Factories 128.78 ms (1)
+Feb 16 05:13:10 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 31.50 ms (1)
+Feb 16 05:13:10 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 589.63 ms (1)
+Feb 16 05:13:10 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 5.62 ms (1)
+Feb 16 05:13:10 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 8.66 ms (1)
+Feb 16 05:13:10 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 218.83 ms (1)
+Feb 16 05:13:10 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.24 ms (6)
+Feb 16 05:13:10 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 93.32 ms (1)
+Feb 16 05:13:10 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 165.58 ms (1)
+Feb 16 05:13:11 symfony [info] {sfWebResponse} Send content (54542 o)
+Feb 16 05:14:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:14:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:14:15 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:14:15 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:14:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:14:15 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:14:15 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:14:15 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:14:15 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:14:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ? AND s.is_active = ?) - (admin, 1)
+Feb 16 05:14:15 symfony [info] {myUser} User is authenticated
+Feb 16 05:14:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:14:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:14:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Feb 16 05:14:16 symfony [info] {myUser} Add credential(s) "admin"
+Feb 16 05:14:16 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-02-16 05:14:16, 2010-02-16 05:14:16, 1)
+Feb 16 05:14:16 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 16 05:14:16 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (created_at < ?) - (2010-02-01 05:14:16)
+Feb 16 05:14:16 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (user_id = ?) - (1)
+Feb 16 05:14:16 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO sf_guard_remember_key (remember_key, user_id, ip_address, created_at, updated_at) VALUES (?, ?, ?, ?, ?) - (b19740048c0d82030d3ac63a4a754dc4, 1, 127.0.0.1, 2010-02-16 05:14:16, 2010-02-16 05:14:16)
+Feb 16 05:14:16 symfony [info] {sfFrontWebController} Redirect to "http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:14:16 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Feb 16 05:14:16 symfony [info] {sfWebResponse} Send header "Location: http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:14:16 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:14:16 symfony [info] {sfWebResponse} Send cookie "sfRemember": "b19740048c0d82030d3ac63a4a754dc4"
+Feb 16 05:14:16 symfony [info] {sfWebDebugLogger} Configuration 28.64 ms (8)
+Feb 16 05:14:16 symfony [info] {sfWebDebugLogger} Factories 146.91 ms (1)
+Feb 16 05:14:16 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 752.70 ms (1)
+Feb 16 05:14:16 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.49 ms (10)
+Feb 16 05:14:16 symfony [info] {sfWebResponse} Send content (116 o)
+Feb 16 05:14:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:14:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:14:19 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:14:19 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:14:19 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:14:19 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:14:19 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:14:19 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:14:19 symfony [info] {sfPHPView} Render "C:/weett/qaeet/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 16 05:14:19 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:14:19 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:14:19 symfony [info] {main} Get slot "title"
+Feb 16 05:14:19 symfony [info] {main} Get slot "title"
+Feb 16 05:14:19 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 05:14:19 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 05:14:19 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 05:14:19 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:14:19 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 05:14:19 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 05:14:19 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 05:14:19 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 05:14:19 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 05:14:19 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:14:19 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:14:20 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Feb 16 05:14:20 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:14:20 symfony [info] {sfWebDebugLogger} Configuration 24.91 ms (9)
+Feb 16 05:14:20 symfony [info] {sfWebDebugLogger} Factories 119.77 ms (1)
+Feb 16 05:14:20 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 31.42 ms (1)
+Feb 16 05:14:20 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 729.72 ms (1)
+Feb 16 05:14:20 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 5.69 ms (1)
+Feb 16 05:14:20 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 8.48 ms (1)
+Feb 16 05:14:20 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 227.35 ms (1)
+Feb 16 05:14:20 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.34 ms (6)
+Feb 16 05:14:20 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 113.83 ms (1)
+Feb 16 05:14:20 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 263.21 ms (1)
+Feb 16 05:14:20 symfony [info] {sfWebResponse} Send content (54660 o)
+Feb 16 05:16:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:16:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:16:11 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:16:11 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:16:11 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:16:11 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:16:11 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:16:11 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:16:11 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:16:11 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.username = ? AND s.is_active = ?) - (admin, 1)
+Feb 16 05:16:11 symfony [info] {myUser} User is authenticated
+Feb 16 05:16:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_user_permission s2 ON s.id = s2.permission_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:16:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.user_id AS s2__user_id, s2.group_id AS s2__group_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_group s LEFT JOIN sf_guard_user_group s2 ON s.id = s2.group_id WHERE (s2.user_id IN (?)) - (1)
+Feb 16 05:16:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.name AS s__name, s.description AS s__description, s.created_at AS s__created_at, s.updated_at AS s__updated_at, s2.group_id AS s2__group_id, s2.permission_id AS s2__permission_id, s2.created_at AS s2__created_at, s2.updated_at AS s2__updated_at FROM sf_guard_permission s LEFT JOIN sf_guard_group_permission s2 ON s.id = s2.permission_id WHERE (s2.group_id IN (?)) - (1)
+Feb 16 05:16:12 symfony [info] {myUser} Add credential(s) "admin"
+Feb 16 05:16:12 symfony [info] {Doctrine_Connection_Statement} execute : UPDATE sf_guard_user SET last_login = ?, updated_at = ? WHERE id = ? - (2010-02-16 05:16:12, 2010-02-16 05:16:12, 1)
+Feb 16 05:16:12 symfony [info] {Doctrine_Connection_Statement} execute : SELECT s.id AS s__id, s.username AS s__username, s.algorithm AS s__algorithm, s.salt AS s__salt, s.password AS s__password, s.is_active AS s__is_active, s.is_super_admin AS s__is_super_admin, s.last_login AS s__last_login, s.created_at AS s__created_at, s.updated_at AS s__updated_at FROM sf_guard_user s WHERE (s.id = ?) - (1)
+Feb 16 05:16:12 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (created_at < ?) - (2010-02-01 05:16:12)
+Feb 16 05:16:12 symfony [info] {Doctrine_Connection_Statement} execute : DELETE FROM sf_guard_remember_key WHERE (user_id = ?) - (1)
+Feb 16 05:16:12 symfony [info] {Doctrine_Connection_Statement} execute : INSERT INTO sf_guard_remember_key (remember_key, user_id, ip_address, created_at, updated_at) VALUES (?, ?, ?, ?, ?) - (49c0f70a47d65d99a49110e663ff241d, 1, 127.0.0.1, 2010-02-16 05:16:12, 2010-02-16 05:16:12)
+Feb 16 05:16:12 symfony [info] {sfFrontWebController} Redirect to "http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:16:12 symfony [info] {sfWebResponse} Send status "HTTP/1.1 302 Found"
+Feb 16 05:16:12 symfony [info] {sfWebResponse} Send header "Location: http://qaeet.localhost/frontend_dev.php/login"
+Feb 16 05:16:12 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:16:12 symfony [info] {sfWebResponse} Send cookie "sfRemember": "49c0f70a47d65d99a49110e663ff241d"
+Feb 16 05:16:12 symfony [info] {sfWebDebugLogger} Configuration 26.91 ms (8)
+Feb 16 05:16:12 symfony [info] {sfWebDebugLogger} Factories 129.25 ms (1)
+Feb 16 05:16:12 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 750.02 ms (1)
+Feb 16 05:16:12 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.40 ms (10)
+Feb 16 05:16:12 symfony [info] {sfWebResponse} Send content (116 o)
+Feb 16 05:16:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:16:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:16:14 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:16:14 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:16:15 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:16:15 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:16:15 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:16:15 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:16:15 symfony [info] {sfPHPView} Render "C:/weett/qaeet/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 16 05:16:15 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:16:15 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:16:15 symfony [info] {main} Get slot "title"
+Feb 16 05:16:15 symfony [info] {main} Get slot "title"
+Feb 16 05:16:15 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 05:16:15 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 05:16:15 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 05:16:15 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:16:15 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 05:16:15 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 05:16:15 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 05:16:15 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 05:16:15 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 05:16:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:16:15 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:16:15 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Feb 16 05:16:15 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:16:15 symfony [info] {sfWebDebugLogger} Configuration 24.68 ms (9)
+Feb 16 05:16:15 symfony [info] {sfWebDebugLogger} Factories 114.68 ms (1)
+Feb 16 05:16:15 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 37.28 ms (1)
+Feb 16 05:16:15 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 642.64 ms (1)
+Feb 16 05:16:15 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 6.69 ms (1)
+Feb 16 05:16:15 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 9.36 ms (1)
+Feb 16 05:16:15 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 246.08 ms (1)
+Feb 16 05:16:15 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.23 ms (6)
+Feb 16 05:16:15 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 98.92 ms (1)
+Feb 16 05:16:15 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 167.46 ms (1)
+Feb 16 05:16:15 symfony [info] {sfWebResponse} Send content (54678 o)
+Feb 16 05:19:48 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signin" (/login)
+Feb 16 05:19:48 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_signout" (/logout)
+Feb 16 05:19:48 symfony [info] {sfPatternRouting} Connect sfRoute "sf_guard_password" (/request_password)
+Feb 16 05:19:48 symfony [info] {sfPatternRouting} Match route "sf_guard_signin" (/login) for /login with parameters array (  'module' => 'sfGuardAuth',  'action' => 'signin',)
+Feb 16 05:19:48 symfony [info] {sfFilterChain} Executing filter "sfRenderingFilter"
+Feb 16 05:19:48 symfony [info] {sfFilterChain} Executing filter "sfGuardRememberMeFilter"
+Feb 16 05:19:48 symfony [info] {sfFilterChain} Executing filter "sfExecutionFilter"
+Feb 16 05:19:48 symfony [info] {sfGuardAuthActions} Call "sfGuardAuthActions->executeSignin()"
+Feb 16 05:19:48 symfony [info] {sfPHPView} Render "C:/weett/qaeet/plugins/sfDoctrineGuardPlugin/modules/sfGuardAuth/templates/signinSuccess.php"
+Feb 16 05:19:48 symfony [info] {sfPHPView} Decorate content with "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:19:48 symfony [info] {sfPHPView} Render "C:\weett\qaeet\apps\frontend\templates/layout.php"
+Feb 16 05:19:48 symfony [info] {main} Get slot "title"
+Feb 16 05:19:48 symfony [info] {main} Get slot "title"
+Feb 16 05:19:48 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_flash_messages.php"
+Feb 16 05:19:48 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_user_status.php"
+Feb 16 05:19:48 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_unanswered_questions.php"
+Feb 16 05:19:48 symfony [info] {Doctrine_Connection_Mysql} exec : SET NAMES 'UTF8' - ()
+Feb 16 05:19:48 symfony [info] {Doctrine_Connection_Mysql} query : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.best_id is null) ORDER BY q.created_at DESC LIMIT 10 - ()
+Feb 16 05:19:49 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_tagcloud.php"
+Feb 16 05:19:49 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT t.id AS t__id, t.slug AS t__slug, t.name AS t__name, COUNT(q.id) AS q__0 FROM tag t INNER JOIN question_tag q2 ON (t.id = q2.tag_id) INNER JOIN question q ON q.id = q2.question_id GROUP BY t.name ORDER BY q__0 DESC LIMIT 50 - ()
+Feb 16 05:19:49 symfony [info] {sfPartialView} Render "C:\weett\qaeet\apps\frontend\templates/_latest_answers.php"
+Feb 16 05:19:49 symfony [info] {Doctrine_Connection_Mysql} query : SELECT DISTINCT a.id AS a__id, a.author_id AS a__author_id, a.reply_id AS a__reply_id, a.question_id AS a__question_id, a.comment AS a__comment, a.answer AS a__answer, a.question AS a__question, a.created_at AS a__created_at, a.updated_at AS a__updated_at FROM answer a LEFT JOIN question q ON a.question_id = q.id ORDER BY a.created_at DESC LIMIT 10 - ()
+Feb 16 05:19:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:19:49 symfony [info] {Doctrine_Connection_Statement} execute : SELECT q.id AS q__id, q.question AS q__question, q.answer AS q__answer, q.best_id AS q__best_id, q.branch_id AS q__branch_id, q.author_id AS q__author_id, q.created_at AS q__created_at, q.updated_at AS q__updated_at, q.slug AS q__slug FROM question q WHERE (q.id = ?) - (1)
+Feb 16 05:19:49 symfony [info] {sfWebResponse} Send status "HTTP/1.1 401 Unauthorized"
+Feb 16 05:19:49 symfony [info] {sfWebResponse} Send header "Content-Type: text/html; charset=utf-8"
+Feb 16 05:19:49 symfony [info] {sfWebDebugLogger} Configuration 27.43 ms (9)
+Feb 16 05:19:49 symfony [info] {sfWebDebugLogger} Factories 128.91 ms (1)
+Feb 16 05:19:49 symfony [info] {sfWebDebugLogger} Action "sfGuardAuth/signin" 34.56 ms (1)
+Feb 16 05:19:49 symfony [info] {sfWebDebugLogger} View "Success" for "sfGuardAuth/signin" 806.90 ms (1)
+Feb 16 05:19:49 symfony [info] {sfWebDebugLogger} Partial "global/_flash_messages" 6.53 ms (1)
+Feb 16 05:19:49 symfony [info] {sfWebDebugLogger} Partial "global/_user_status" 8.47 ms (1)
+Feb 16 05:19:49 symfony [info] {sfWebDebugLogger} Partial "global/_unanswered_questions" 260.43 ms (1)
+Feb 16 05:19:49 symfony [info] {sfWebDebugLogger} Database (Doctrine) 0.28 ms (6)
+Feb 16 05:19:49 symfony [info] {sfWebDebugLogger} Partial "global/_tagcloud" 142.87 ms (1)
+Feb 16 05:19:49 symfony [info] {sfWebDebugLogger} Partial "global/_latest_answers" 288.26 ms (1)
+Feb 16 05:19:49 symfony [info] {sfWebResponse} Send content (54625 o)

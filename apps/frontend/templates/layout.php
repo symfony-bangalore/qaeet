@@ -23,6 +23,7 @@
         </div>         
         <div id="yui-nav" role="navigation" class="yui-b">
           <?php include_partial('global/flash_messages') ?>
+          <?php include_partial('global/user_status') ?>
           <?php include_partial('global/unanswered_questions') ?>
           <?php include_partial('global/tagcloud') ?>
           <?php include_partial('global/latest_answers') ?>
