@@ -94,15 +94,10 @@ li.tag a:hover {
 
 div.answer_item
 {
-  position: relative;
 }
 
 div.answer_item div.answer_item_content
 {
-  position: absolute;
-  right: 0px;
-  bottom: 10px;
-  width: 500px;
   border: 1px solid #888;
   background: #ddd;
   padding: 5px;
