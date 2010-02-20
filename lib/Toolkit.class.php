@@ -14,7 +14,7 @@ class Toolkit
   static public function extractTags($text)
   {
     $tags = array();
-    preg_match_all('/\#(\w+)/', $text, $tags);
+    preg_match_all('/\s\#(\w+)/', $text, $tags);
     $tags = isset($tags[1]) ? $tags[1] : array();
     $tags = array_map('strtolower', $tags);
     return array_count_values($tags);
@@ -22,12 +22,24 @@ class Toolkit
 
   /**
    * Applies syntax highlighting AND Markdown to a text
+   * XSS SAFE!
    *
    * @return highlighted text
    * @author The Young Shepherd
    **/
   static public function HTMLify($text)
   {
+    // include Markdown
+    require_once dirname(__FILE__).'/vendor/markdown/markdown.php';
+    // include HTML purifier
+    require_once dirname(__FILE__).'/vendor/htmlpurifier/HTMLPurifier.standalone.php';
+
+    // this function is escape safe
+    if ($text instanceof sfOutputEscaper)
+    {
+      $text = $test->getRawValue();
+    }
+    
     // extract php code blocks and apply the php highlighter to it
     $tokens = token_get_all($text);
 
@@ -62,6 +74,23 @@ class Toolkit
       }
     }
     
-    return Markdown($text);
+    $dirty_html = Markdown($text);
+
+    $purifier = new HTMLPurifier();
+    return $purifier->purify($dirty_html);
+  }
+  
+  /**
+   * displays a diff for two texts
+   *
+   * @return void
+   * @author The Young Shepherd
+   **/
+  static public function diff($old,$new) 
+  {
+    $dmp = new diff_match_patch();
+    $d = $dmp->diff_main($old, $new);
+    $dmp->diff_cleanupSemantic($d);
+    return $dmp->diff_prettyHtml($d);
   }
 }

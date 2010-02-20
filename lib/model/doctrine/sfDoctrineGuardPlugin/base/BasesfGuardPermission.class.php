@@ -28,7 +28,7 @@
  * @method sfGuardPermission   setUsers()                  Sets the current record's "Users" collection
  * @method sfGuardPermission   setSfGuardUserPermission()  Sets the current record's "sfGuardUserPermission" collection
  * 
- * @package    qaeet
+ * @package    qa
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7021 2010-01-12 20:39:49Z lsmith $

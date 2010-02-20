@@ -26,7 +26,7 @@ all:
   .settings:
     # Form security secret (CSRF protection)
     csrf_secret:            false
-    #08326d38cee6d260b2e50dc58cba5ec3484375c5
+    # 16c2e9cf3a61a2bec15e36494e2c6809af83421e
 
     # Output escaping settings
     escaping_strategy:      true
@@ -36,10 +36,12 @@ all:
     use_database:           true
 
     enabled_modules:        [default, sfGuardAuth, sfApply]
-    
+
+    # settings for sfDcotrineGuardPlugin
     login_module:           sfGuardAuth
     login_action:           signin    
     secure_module:          sfGuardAuth
     secure_action:          secure
 
-    i18n: on  
+    # settings for sfDoctrineApplyPlugin
+    i18n:                   on 

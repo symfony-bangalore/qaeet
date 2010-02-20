@@ -8,6 +8,6 @@ class myUser extends sfGuardSecurityUser
     {
       return parent::getUsername();
     }
-    return 'Anonymous_'.$_SERVER['REMOTE_ADDR'];
+    return 'Anonymous@'.$_SERVER['REMOTE_ADDR'];
   }
 }

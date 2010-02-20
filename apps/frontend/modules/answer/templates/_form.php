@@ -1,29 +1,35 @@
-<?php 
-  use_stylesheets_for_form($form);
-  use_javascripts_for_form($form);
-  $form->getWidgetSchema()->setFormFormatterName('list');
-?>
+<?php use_stylesheets_for_form($form) ?>
+<?php use_javascripts_for_form($form) ?>
 
-<?php echo $form->renderFormTag(
-        url_for('answer/' .($form->getObject()->isNew() ? 'create' : 'update')
-                  .(!$form->getObject()->isNew() ? '?id='.$form->getObject()->getId() : ''))
-        , array(
-          'class'  => 'question_form',
-          'method' => $form->getObject()->isNew() ? 'post' : 'put'
-        )) ?>
+<?php echo form_tag_for($form, '@answer') ?>
 <?php echo $form->renderHiddenFields() ?>
-
-  <ul>
-    <?php echo $form['question']->renderRow(array('class'=>'question')); ?>
-    <?php echo $form['answer']->renderRow(array('class'=>'answer')); ?>
-    <?php echo $form['comment']->renderRow(array('class'=>'comment')); ?>
-    <li>
-      <button type='submit' class='button positive'><img src='/icon/plus.png'/>Submit</button>
-  
-      &nbsp;<a href="<?php echo url_for('question/show?id='. $form->getObject()->Question->id) ?>">Back to question</a>
-      <?php if (!$form->getObject()->isNew()): ?>
-        &nbsp;<?php echo link_to('Delete', 'answer/delete?id='.$form->getObject()->getId(), array('method' => 'delete', 'confirm' => 'Are you sure?')) ?>
-      <?php endif; ?>
-    </li>
-  </ul>  
+<?php echo $form->renderGlobalErrors() ?>
+<ul>
+  <li>
+    <?php echo $form['comment']->renderError() ?>
+    <?php echo $form['comment']->renderLabel() ?>
+    <?php echo $form['comment']->render() ?>
+  </li>
+  <?php if (isset($toggle)): ?>
+  <li>
+    <button type="submit" class='positive'><img src='/icon/plus.png'/>Submit</button>    
+    <a id='toggle' class='show_on_load toggle_view button'><img src='/icon/magnifier-zoom-actual-equal.png'/>Show question and answer fields in the form below, so I can update them as well</a>
+    <div class='clear'></div>
+  </li>
+  <?php endif ?>
+  <li<?php echo isset($toggle) ? " class='hide_on_load toggle_view'" : ""?>>
+    <?php echo $form['question']->renderError() ?>
+    <?php echo $form['question']->renderLabel() ?>
+    <?php echo $form['question']->render() ?>
+  </li>
+  <li<?php echo isset($toggle) ? " class='hide_on_load toggle_view'" : ""?>>
+    <?php echo $form['answer']->renderError() ?>
+    <?php echo $form['answer']->renderLabel() ?>
+    <?php echo $form['answer']->render() ?>
+  </li>
+  <li<?php echo isset($toggle) ? " class='hide_on_load toggle_view'" : ""?>>
+    <button type="submit" class='positive'><img src='/icon/plus.png'/>Submit</button>    
+    <div class='clear'></div>
+  </li>
+</ul>
 </form>

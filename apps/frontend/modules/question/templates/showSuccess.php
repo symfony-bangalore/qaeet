@@ -1,34 +1,28 @@
 <?php slot('title', sprintf('%s', $question->getTitle())) ?>
 
-<div class='question'>
-  <?php echo Toolkit::HTMLify($sf_data->getRaw('question')->getBody()) ?>
-</div>
-<p>Posted by <?php echo $question->Author ?> 
-on <?php echo $question->getDateTimeObject('created_at')->format('m/d/Y') ?></p>
+<?php if ($question->Origin->exists()): slot('subtitle'); ?>
+  <img src='/icon/arrow-curve-000-left.png'/> Branched from: <?php echo link_to($question->Origin->Root->getTitle(), 'question_show', $question->Origin->Root) ?>
+<?php end_slot(); endif; ?>
 
-<?php if ($question->hasBestAnswer()): ?>
-<div class='answer answer_best'>
-  <?php echo Toolkit::HTMLify($sf_data->getRaw('question')->BestAnswer->answer) ?>
-</div>
-<p>Best answer (yet) by <?php echo $question->BestAnswer->getAuthorName() ?> 
-on <?php echo $question->BestAnswer->getDateTimeObject('created_at')->format('m/d/Y') ?></p>
-<?php endif; ?>
+<?php slot('sidebar') ?>
+  <?php include_partial('see_also',array('question'=>$question)) ?>
+<?php end_slot() ?>
 
-<p>
-  <?php echo link_to("<img src='/icon/plus.png'/>".($question->hasBestAnswer() ? "Improve this answer!" : "Answer this question"), 'answer/new?question_id='.$question->getId(), array('class'=>'button positive')) ?>
-</p>
 
-<ul class='tag_list'>
-<?php foreach ($question->Tags as $tag): ?>
-  <li class='tag'><?php echo link_to($tag,'tag/index?id='.$tag->id) ?></li>
-<?php endforeach; ?>
-</ul>
-
-<hr/>
-
-<?php foreach ($question->Answers as $answer): ?>
-  <div class='comment'>
-    <?php echo include_partial('answer/answer',array('answer'=>$answer)); ?>
+<div class='main_content'>
+  <?php if (strlen($question->getBody()) > 0): ?>
+    <div class='question'>
+      <?php echo Toolkit::HTMLify($question->getRawValue()->getBody()) ?>
+    </div>
+  <?php endif; ?>
+  
+  <div class='answer'>
+    <?php echo Toolkit::HTMLify($question->getRawValue()->getBest()->answer) ?>
   </div>
-<?php endforeach; ?>
+</div>
 
+<div class='divider'></div>
+
+<?php include_partial('answer/form',array('form'=>$form, 'toggle'=>true)) ?>
+
+<?php include_partial('discussion',array('question'=>$question)) ?>

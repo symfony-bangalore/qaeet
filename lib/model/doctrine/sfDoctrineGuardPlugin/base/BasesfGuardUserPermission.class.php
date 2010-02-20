@@ -19,7 +19,7 @@
  * @method sfGuardUserPermission setSfGuardUser()       Sets the current record's "sfGuardUser" value
  * @method sfGuardUserPermission setSfGuardPermission() Sets the current record's "sfGuardPermission" value
  * 
- * @package    qaeet
+ * @package    qa
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7021 2010-01-12 20:39:49Z lsmith $

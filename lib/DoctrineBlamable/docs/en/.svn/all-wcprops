@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/!svn/ver/5998/extensions/Blameable/branches/1.2-1.0/docs/en
+END
+introduction.txt
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/!svn/ver/5996/extensions/Blameable/branches/1.2-1.0/docs/en/introduction.txt
+END
+enable-blameable.txt
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/!svn/ver/5998/extensions/Blameable/branches/1.2-1.0/docs/en/enable-blameable.txt
+END
+options.txt
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/!svn/ver/5998/extensions/Blameable/branches/1.2-1.0/docs/en/options.txt
+END

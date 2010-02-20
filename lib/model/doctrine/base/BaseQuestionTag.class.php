@@ -13,7 +13,7 @@
  * @method QuestionTag setQuestionId()  Sets the current record's "question_id" value
  * @method QuestionTag setTagId()       Sets the current record's "tag_id" value
  * 
- * @package    qaeet
+ * @package    qa
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7021 2010-01-12 20:39:49Z lsmith $

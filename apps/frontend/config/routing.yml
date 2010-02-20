@@ -1,10 +1,31 @@
 # You can find more information about this file on the symfony website:
 # http://www.symfony-project.org/reference/1_4/en/10-Routing
 
-# default rules
-homepage:
-  url:   /
-  param: { module: question, action: index }
+question:
+  class:   sfDoctrineRouteCollection
+  options:
+    model: Question
+    column: slug
+
+answer:
+  class:   sfDoctrineRouteCollection
+  options:
+    model: Answer
+    column: slug
+    object_actions:
+      branch: get
+      best:   get
+
+tag_show:
+  url:    /tag/:slug
+  class:   sfDoctrineRoute
+  options:
+    model:  Tag
+    column: slug
+    type:   object
+  param:  { module: tag, action: show }
+
+# Doctrine Apply rules
 
 apply:
   url:  /apply
@@ -26,16 +47,20 @@ settings:
   url: /settings
   param: { module: sfApply, action: settings }
 
-# We implement the missing sf_guard_password feature from sfGuardPlugin
 sf_guard_password:
   url: /reset-request
   param: { module: sfApply, action: resetRequest }
 
+# default rules
+homepage:
+  url:   /
+  param: { module: question, action: index }
+
 # generic rules
 # please, remove them by adding more specific rules
-default_index:
-  url:   /:module
-  param: { action: index }
-
-default:
-  url:   /:module/:action/*
+#default_index:
+#  url:   /:module
+#  param: { action: index }
+#
+#default:
+#  url:   /:module/:action/*

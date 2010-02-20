@@ -13,7 +13,7 @@
  * @method QuestionRelation setFromId()  Sets the current record's "from_id" value
  * @method QuestionRelation setToId()    Sets the current record's "to_id" value
  * 
- * @package    qaeet
+ * @package    qa
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7021 2010-01-12 20:39:49Z lsmith $

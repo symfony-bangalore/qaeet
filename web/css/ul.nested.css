@@ -1,0 +1,31 @@
+/* source: http://css-tricks.com/style-a-list-with-one-pixel/ */
+
+ul.nested-root {
+  background:transparent url(/images/graypixel.png) repeat-y 15px 0;
+}
+
+ul.nested-root li.nested {
+  margin:15px 0 20px;
+  padding:0 0 0 10px;
+}
+
+ul.nested-root, ul.nested-root li.nested ul.nested
+{
+  margin: 0px;
+}
+
+ul.nested-root li.nested ul.nested li.nested {
+  background:transparent url(/images/graypixel.png) repeat-x 0 8px;
+  margin:4px 0 4px 5px;
+  padding:0 0 0 20px;
+}
+
+ul.nested-root li.nested ul.nested li.nested ul.nested {
+  background:transparent url(/images/graypixel.png) repeat-y 15px 0;
+  margin-bottom:10px;
+}
+
+ul.nested-root li.nested ul.nested li.nested ul.nested li.nested {
+  margin-left:16px;
+  padding-left:10px;
+}

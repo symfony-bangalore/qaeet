@@ -1,18 +1,34 @@
+QA:
+  item1:
+    type: 1
+    question: "How to add #fixtures in #symfony"
+    answer: "Put them in fixtures.yml"
+    children:
+      item2:
+        type: 2
+        comment: "PLEASE act normal"
+      item3:
+        type: 2
+        comment: "Another comment"
+        children:
+          item4:
+            type: 2
+            comment: "Commenting on comments"
+            answer: "Just read the book"
+          item5:
+            type: 2
+            comment: "Changed question"
+            question: "Why do birds fly?"
+      item6:
+        type: 2
+        comment: "Added ref to symfony documentation"
+        answer: "Put them in fixtures.yml, see <http://www.symfony-project.org/reference/1_4/en/10-Routing#chapter_10_sfobjectroutecollection>"
+
 sfGuardUser:
   sgu_admin:
     username:       admin
     password:       admin
     is_super_admin: true
-  sgu_sjoerd:
-    username:       sjoerd
-    password:       sjoerd
-  sgu_amit:
-    username:       amit
-    password:       amit
-    is_super_admin: true
-  sgu_amal:
-    username:       amal
-    password:       amal
 
 sfGuardPermission:
   sgp_admin:
@@ -33,49 +49,3 @@ sfGuardUserGroup:
   sgug_admin:
     sfGuardGroup:       sgg_admin
     sfGuardUser:        sgu_admin
-
-sfGuardUserProfile:
-  sjoerd:
-    fullname: Sjoerd de Jong
-    email: sjoerddejong@ymail.com
-    User: sgu_sjoerd
-  amit:
-    fullname: Amit Rana
-    email: sjoerddejong@ymail.com
-    User: sgu_amit
-  amal:
-    fullname: Amal RS
-    email: sjoerddejong@ymail.com
-    User: sgu_amal
-    
-Question:
-  install:
-    Author: amit
-    question: |
-      How to install Symfony?
-      I don't know how to #put #sf on my #machine...
-    Tags: [install, symfony]
-  linux:
-    Author: amal
-    question: How to install on Linux?
-      
-Tag:
-  install:
-    name: install
-  symfony:
-    name: symfony
-  sfuser:
-    name: sfUser
-    
-Answer:
-  install1:
-    Question: install
-    Author: sjoerd
-    answer: RTFM at http://www.symfony-project.org/install
-  install2:
-    Question: install
-    Author: amal
-    comment: Changed the answer into a friendly one, please no flaming here!
-    answer: |
-      There's a nice manual at http://www.symfony-project.org/installation/1_4
-    

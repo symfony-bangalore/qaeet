@@ -10,11 +10,22 @@
   </head>
   <body>
   
-    <div id="doc4" class="yui-t3">
+    <div id="doc3" class="yui-t6">
       <div id="hd" role="banner">
         <?php echo link_to("<img src='/images/answer.png'/>","/",array('style'=>'float:right'))
                 .link_to("<img src='/images/question.png'/>","/",array('style'=>'float:left')) ?>
-        <h1><?php include_slot('title', 'QAeet - Symfony Bangalore') ?></h1>
+        <div class='align_bottom'>
+          <h1>
+            <?php if (has_slot('title')): ?>
+              &#147;<?php include_slot('title') ?>&#148;
+            <?php else: ?>
+              Questions and Answers!
+            <?php endif ?>
+          </h1>
+          <?php if (has_slot('subtitle')): ?>
+            <h4><?php include_slot('subtitle') ?></h4>
+          <?php endif ?>
+        </div>
       </div>
              
       <div id="bd" role="main"> 
@@ -28,11 +39,9 @@
         <div id="yui-nav" role="navigation" class="yui-b">
           <?php include_partial('global/flash_messages') ?>
           <?php include_partial('global/user_status') ?>
+          <?php include_slot('sidebar') ?>
           <?php include_partial('global/unanswered_questions') ?>
           <?php include_partial('global/tagcloud') ?>
-          <?php include_partial('global/latest_answers') ?>
-
-          <!-- YOUR NAVIGATION GOES HERE -->
         </div>          
       </div> 
       

@@ -3,60 +3,45 @@
 /**
  * answer actions.
  *
- * @package    qaeet
+ * @package    qa
  * @subpackage answer
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
  */
 class answerActions extends sfActions
 {
-  public function executeIndex(sfWebRequest $request)
+  public function executeBest(sfWebRequest $request)
   {
-    $this->answers = Doctrine::getTable('Answer')
-      ->createQuery('a')
-      ->execute();
+    $answer = $this->getRoute()->getObject();
+    $answer->makeBest();
+    $this->redirect('question_show',$answer->getRoot());
   }
 
-  public function executeVotebest(sfWebRequest $request)
+  public function executeBranch(sfWebRequest $request)
   {
-    $this->answer = Doctrine::getTable('Answer')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->answer);
-    
-    $this->answer->setBest();
-    $this->getUser()->setFlash('success','Changed the answer as best answer');
-    
-    $this->redirect('question/show?id='.$this->answer->Question->id);
+    $answer = $this->getRoute()->getObject();
+    $question = $answer->branchOff();
+    $this->form = new QuestionForm($question);
+    $this->setTemplate('new', 'question');
+  }
+
+  public function executeIndex(sfWebRequest $request)
+  {
+    $this->answers = $this->getRoute()->getObjects();
   }
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->answer = Doctrine::getTable('Answer')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->answer);
+    $this->answer = $this->getRoute()->getObject();
   }
 
   public function executeNew(sfWebRequest $request)
   {
-    $this->question = Doctrine::getTable('Question')->find(array($request->getParameter('question_id')));
-    $this->forward404Unless($this->question);
-    
-    // apply defaults
-    $answer = new Answer();
-    $answer->Question = $this->question;
-    $answer->ReplyTo = $this->question->BestAnswer;
-    $answer->question = $this->question->question;
-    $answer->answer = $this->question->answer;
-    
-    $this->form = new AnswerForm($answer);
-    
-    // hide the question
-    $ws = $this->form->getWidgetSchema();
-    $ws['question_id'] = new sfWidgetFormInputHidden();
+    $this->form = new AnswerForm();
   }
 
   public function executeCreate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
-
     $this->form = new AnswerForm();
 
     $this->processForm($request, $this->form);
@@ -66,15 +51,12 @@ class answerActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forward404Unless($answer = Doctrine::getTable('Answer')->find(array($request->getParameter('id'))), sprintf('Object answer does not exist (%s).', $request->getParameter('id')));
-    $this->form = new AnswerForm($answer);
+    $this->form = new AnswerForm($this->getRoute()->getObject());
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($answer = Doctrine::getTable('Answer')->find(array($request->getParameter('id'))), sprintf('Object answer does not exist (%s).', $request->getParameter('id')));
-    $this->form = new AnswerForm($answer);
+    $this->form = new AnswerForm($this->getRoute()->getObject());
 
     $this->processForm($request, $this->form);
 
@@ -85,10 +67,9 @@ class answerActions extends sfActions
   {
     $request->checkCSRFProtection();
 
-    $this->forward404Unless($answer = Doctrine::getTable('Answer')->find(array($request->getParameter('id'))), sprintf('Object answer does not exist (%s).', $request->getParameter('id')));
-    $answer->delete();
+    $this->getRoute()->getObject()->delete();
 
-    $this->redirect('answer/index');
+    $this->redirect('@answer');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -96,14 +77,9 @@ class answerActions extends sfActions
     $form->bind($request->getParameter($form->getName()), $request->getFiles($form->getName()));
     if ($form->isValid())
     {
-      if ($this->getUser()->getGuardUser() && $this->getUser()->getGuardUser()->getProfile())
-      {
-        $answer = $form->getObject();
-        $answer->Author = $this->getUser()->getGuardUser()->getProfile();
-      }
       $answer = $form->save();
-
-      $this->redirect('question/show?id='.$answer->Question->getId());
+      $question = Doctrine::getTable('Question')->find($answer->root_id);
+      $this->redirect('question_show',$question);
     }
   }
 }

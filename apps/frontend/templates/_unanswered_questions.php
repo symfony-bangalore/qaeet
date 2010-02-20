@@ -1,6 +1,6 @@
 <h3>Latest unanswered:</h3>
 <ul>
 <?php foreach(Doctrine::getTable('Question')->getUnanswered() as $question): ?>
-  <li><?php echo link_to($question->getTitle(), 'question/show?id='.$question->id) ?></li>
+  <li><?php echo link_to(htmlentities($question->getTitle()), 'question_show', $question) ?></li>
 <?php endforeach; ?>
 </ul>

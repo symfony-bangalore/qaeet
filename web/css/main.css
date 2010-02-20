@@ -1,66 +1,170 @@
-html {
-     overflow: -moz-scrollbars-vertical;
+div.grippie {
+	background:#EEEEEE url(/images/grippie.png) no-repeat scroll center 2px;
+	border-color:#DDDDDD;
+	border-style:solid;
+	border-width:0pt 1px 1px;
+	cursor:s-resize;
+	height:9px;
+	overflow:hidden;
+}
+
+.resizable-textarea textarea {
+	display:block;
+	margin-bottom:0pt;
+	width: 95%;
 }
 
 body
 {
-  font-size: 100%;
-}
-
-textarea
-{
-  width: 100%;
-}
-
-ul
-{
+  font-size: 116%;
   margin: 0px;
 }
 
-#hd h1
-{
-  text-align: center;
-  padding-top: 40px;
-  padding-bottom: 5px;
-  border-bottom: 5px double #888;
-  font-size: 197%;
-}
-  
-#ft
-{
-  margin-top: 5px;
-  padding-top: 5px;
-  border-top: 5px double #888;
+pre {
+white-space: pre-wrap; /* css-3 */
+white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+white-space: -pre-wrap; /* Opera 4-6 */
+white-space: -o-pre-wrap; /* Opera 7 */
+word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
 
-#yui-nav h3
+div.main_content
 {
+  padding: 10px;
+  background: #ddd;
+  font-size: 110%;
+}
+
+div.clear
+{
+  height: 0px;
   clear: both;
 }
 
-div.question, textarea.question,
-div.answer, textarea.answer,
-div.comment, textarea.comment
+#hd
+{
+  position: relative;
+}
+
+#hd, div.divider  
+{  
+  border-bottom: 5px double #888;
+  margin-bottom: 5px;
+}
+
+div.divider
+{
+  margin-top: 5px;
+}
+
+#hd div.align_bottom
+{
+  position: absolute;
+  bottom: 0px;
+  margin: 0 100px;
+}
+
+.question, .answer, .comment
 {
   clear: both;
   background: #ddf;
   border: 1px solid #88f;
   padding: 5px;
-  font-size: 116%;
 }
 
-div.answer, textarea.answer
+.answer
 {
   background-color: #fdd;
   border-color: #f88;
 }
 
-div.comment, textarea.comment
+.comment
 {
   background-color: #eee;
   border-color: #888;
 }
 
+div.comment .answer, div.comment .question
+{
+  margin-top: 2px;
+  color: black;
+}
+
+ins
+{
+  background: #cfc;
+}
+del
+{
+  background: #fcc;
+  color: #888;
+}
+
+li.best_answer > div.comment
+{
+  border-width: 5px;
+  border-style: double ;
+}
+
+div.menubar
+{
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background: white;
+  padding: 1px;
+}
+
+div.menubar .button
+{
+  margin: 1px;
+}
+
+div.comment div.menubar
+{
+  border-bottom: 1px solid #888;
+  border-left: 1px solid #888;
+}
+
+div.show_only_on_hover
+{
+  display: none;
+}
+
+div.comment:hover
+{
+  background: #ddd;
+  position: relative;
+}
+
+div.comment:hover div.show_only_on_hover
+{
+  display: block;
+}
+
+.show_on_load, .hidden
+{
+  display: none;
+}
+
+form ul
+{
+  margin: 0px;
+  list-style: none;
+  padding-right: 5px;
+}
+
+form ul.error_list
+{
+  font-weight: bold;
+  color: red;
+  font-size: 125%;
+  margin-bottom: 5px;
+}
+
+/*
+ * Tags, tag list and tag cloud
+ */
 ul.tag_cloud, ul.tag_list 
 {
   padding: 2px; 
@@ -76,55 +180,4 @@ ul.tag_cloud li.tag, ul.tag_list li.tag
 {
   display: inline;
   margin: 0px;
-}
-
-li.tag a
-{
-  padding: 2px;
-  padding-left: 14px;  
-  text-decoration: none;
-}
-
-li.tag a:hover {
-  padding: 1px;
-  padding-left: 13px;  
-  border: 1px solid #edc;
-  background: #fed url(/icon/tag-small.png) no-repeat 0px 2px;
-}
-
-li.tag a:hover {
-  background-color: #fc9;
-  border: 1px solid #fb7;
-}
-
-div.comment
-{
-  position: relative;
-}
-
-div.comment div.answer_item div.answer_item_float
-{
-  display: none;
-  z-index: 1;
-  position: absolute;
-  width: 90%;
-  right: 0px;
-  background: #eee;
-  border: 1px solid #888;
-  padding: 5px;
-}
-
-div.comment:hover div.answer_item div.answer_item_float
-{
-  display: block;
-}
-
-div.comment:hover
-{
-  background: #ddd;
-}
-
-a.branch_button
-{
-  float: right;
 }

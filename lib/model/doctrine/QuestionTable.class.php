@@ -1,16 +1,7 @@
 <?php
 
-class QuestionTable extends Doctrine_Table
+class QuestionTable extends QATable
 {
-  public function getLatest($limit = 10)
-  {
-    return Doctrine_Query::create()
-      ->from('Question q')
-      ->orderBy('q.created_at DESC')
-      ->limit($limit)
-      ->execute();
-  }
-
   public function getUnanswered($limit = 10)
   {
     return Doctrine_Query::create()

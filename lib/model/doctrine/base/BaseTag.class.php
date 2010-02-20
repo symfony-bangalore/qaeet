@@ -13,7 +13,7 @@
  * @method Tag                 setName()      Sets the current record's "name" value
  * @method Tag                 setQuestions() Sets the current record's "Questions" collection
  * 
- * @package    qaeet
+ * @package    qa
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7021 2010-01-12 20:39:49Z lsmith $

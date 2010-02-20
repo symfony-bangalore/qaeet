@@ -1,5 +1,3 @@
-<h1>Questions List</h1>
-
 <table>
   <thead>
     <tr>
@@ -11,12 +9,12 @@
   <tbody>
     <?php foreach ($questions as $question): ?>
     <tr>
-      <td><?php echo link_to($question->getQuestion(), 'question/show?id='.$question->id)  ?></td>
-      <td><?php echo $question->Author ?></td>
-      <td><?php echo count($question->Answers) ?></td>
+      <td><?php echo link_to($question->getTitle(), 'question_show', $question)  ?></td>
+      <td><?php echo $question->created_by ?></td>
+      <td><?php echo ($question->rgt - $question->lft - 1) / 2 ?></td>
     </tr>
     <?php endforeach; ?>
   </tbody>
 </table>
 
-  <a href="<?php echo url_for('question/new') ?>">New</a>
+  <a href="<?php echo url_for('question_new') ?>">New</a>

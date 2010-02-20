@@ -1,90 +1,79 @@
-sfGuardUserProfile:
-  tableName: sf_guard_user_profile
+QA:
+  actAs:
+    NestedSet:
+      hasManyRoots:   true
+      rootColumnName: root_id
+    Sluggable:
+      unique:         true
+      fields:         [slugFromTitle]
+      canUpdate:      true
+    Timestampable:  ~
+    Doctrine_Template_Blameable:
+      listener:       Doctrine_Template_Listener_Blameable_sfGuard
+      columns:
+        created:
+          type:         string
+          length:       128
+        updated:
+          type:         string
+          length:       128
   columns:
-    id:
-      type: integer(4)
-      primary: true
-      autoincrement: true
-    user_id:
-      type: integer(4)
-      notnull: true
-    email:
-      type: string(80)
-    fullname:
-      type: string(80)
-    validate:
-      type: string(17)
+    question:         string
+    answer:           string
   relations:
-    User:
-      class: sfGuardUser
-      foreign: id
-      local: user_id
-      type: one  
-      onDelete: cascade    
-      foreignType: one
-      foreignAlias: Profile
+    Root:
+      class:        QA
+      local:        root_id
 
 Question:
-  actAs:
-    Timestampable: ~
-    Sluggable:
-      unique: true
-      fields: [title]
-      canUpdate: true
+  inheritance:
+    extends: QA
+    type: column_aggregation
+    keyField: type
+    keyValue: 1
   columns:
-    question: string
-    answer: string
-    best_id: integer
-    branch_id: integer
-    author_id: integer(4)
+    best_id:          integer
+    origin_id:        integer
   relations:
-    BestAnswer:
-      class: Answer
-      local: best_id
+    # Forwards to the best Answer item in this tree
+    Best:
+      class:        Answer
+      local:        best_id
       foreignType:  one
-    BranchedAnswer:
-      class: Answer
-      local: branch_id
-      foreignType:  one
+    # indicates if this item originates from another question
+    Origin:
+      class:        Answer
+      local:        origin_id
+      foreignAlias: Branches
+    # Points to related QAs elsewhere
     Related:
-      class: Question
-      refClass: QuestionRelation
-      local: from_id
-      foreign: to_id
-      equal: true
-    Author:
-      class: sfGuardUserProfile
-      local: author_id
-      foreignAlias: Questions
+      class:        Question
+      refClass:     QuestionRelation
+      local:        from_id
+      foreign:      to_id
+      equal:        true
     Tags:
       class:        Tag
       refClass:     QuestionTag
       local:        question_id
       foreign:      tag_id
       foreignAlias: Questions
-      
+  
 Answer:
-  actAs:
-    Timestampable:
+  inheritance:
+    extends: QA
+    type: column_aggregation
+    keyField: type
+    keyValue: 2
   columns:
-    question: string
-    answer: string
-    comment: string
-    author_id: integer(4)
-    reply_id: integer
-    question_id: integer
+    comment:          string
+    reply_id:         integer
   relations:
-    Author:
-      class: sfGuardUserProfile
-      local: author_id
-      foreignAlias: Answers
-    Question:
-      foreignAlias: Answers 
     ReplyTo:
-      class: Answer
-      local: reply_id
+      class:        QA
+      local:        reply_id
       foreignAlias: Replies
-
+      
 QuestionRelation:
   columns:
     from_id:
@@ -112,3 +101,29 @@ Tag:
     name:
       type: string(255)
       unique: true
+
+sfGuardUserProfile:
+  tableName: sf_guard_user_profile
+  columns:
+    id:
+      type: integer(4)
+      primary: true
+      autoincrement: true
+    user_id:
+      type: integer(4)
+      notnull: true
+    email:
+      type: string(80)
+    fullname:
+      type: string(80)
+    validate:
+      type: string(17)
+  relations:
+    User:
+      class: sfGuardUser
+      foreign: id
+      local: user_id
+      type: one  
+      onDelete: cascade    
+      foreignType: one
+      foreignAlias: Profile

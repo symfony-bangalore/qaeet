@@ -3,63 +3,22 @@
 /**
  * Answer filter form base class.
  *
- * @package    qaeet
+ * @package    qa
  * @subpackage filter
  * @author     Your name here
- * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
+ * @version    SVN: $Id: sfDoctrineFormFilterGeneratedInheritanceTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
  */
-abstract class BaseAnswerFormFilter extends BaseFormFilterDoctrine
+abstract class BaseAnswerFormFilter extends QAFormFilter
 {
-  public function setup()
+  protected function setupInheritance()
   {
-    $this->setWidgets(array(
-      'question'    => new sfWidgetFormFilterInput(),
-      'answer'      => new sfWidgetFormFilterInput(),
-      'comment'     => new sfWidgetFormFilterInput(),
-      'author_id'   => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Author'), 'add_empty' => true)),
-      'reply_id'    => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('ReplyTo'), 'add_empty' => true)),
-      'question_id' => new sfWidgetFormDoctrineChoice(array('model' => $this->getRelatedModelName('Question'), 'add_empty' => true)),
-      'created_at'  => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-      'updated_at'  => new sfWidgetFormFilterDate(array('from_date' => new sfWidgetFormDate(), 'to_date' => new sfWidgetFormDate(), 'with_empty' => false)),
-    ));
-
-    $this->setValidators(array(
-      'question'    => new sfValidatorPass(array('required' => false)),
-      'answer'      => new sfValidatorPass(array('required' => false)),
-      'comment'     => new sfValidatorPass(array('required' => false)),
-      'author_id'   => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Author'), 'column' => 'id')),
-      'reply_id'    => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('ReplyTo'), 'column' => 'id')),
-      'question_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => $this->getRelatedModelName('Question'), 'column' => 'id')),
-      'created_at'  => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
-      'updated_at'  => new sfValidatorDateRange(array('required' => false, 'from_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 00:00:00')), 'to_date' => new sfValidatorDateTime(array('required' => false, 'datetime_output' => 'Y-m-d 23:59:59')))),
-    ));
+    parent::setupInheritance();
 
     $this->widgetSchema->setNameFormat('answer_filters[%s]');
-
-    $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
-
-    $this->setupInheritance();
-
-    parent::setup();
   }
 
   public function getModelName()
   {
     return 'Answer';
-  }
-
-  public function getFields()
-  {
-    return array(
-      'id'          => 'Number',
-      'question'    => 'Text',
-      'answer'      => 'Text',
-      'comment'     => 'Text',
-      'author_id'   => 'ForeignKey',
-      'reply_id'    => 'ForeignKey',
-      'question_id' => 'ForeignKey',
-      'created_at'  => 'Date',
-      'updated_at'  => 'Date',
-    );
   }
 }

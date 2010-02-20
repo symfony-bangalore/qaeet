@@ -1,0 +1,10 @@
+$(function(){  
+  $('textarea').TextAreaResizer();
+  $('.hide_on_load').hide();
+  $('.show_on_load').show();
+  $('.focus_on_load').focus();
+  $('#toggle').click(function(event){
+    $('.toggle_view').toggle();
+    event.preventDefault();
+  });
+});

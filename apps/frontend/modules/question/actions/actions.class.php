@@ -3,7 +3,7 @@
 /**
  * question actions.
  *
- * @package    qaeet
+ * @package    qa
  * @subpackage question
  * @author     Your name here
  * @version    SVN: $Id: actions.class.php 23810 2009-11-12 11:07:44Z Kris.Wallsmith $
@@ -12,15 +12,17 @@ class questionActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->questions = Doctrine::getTable('Question')
-      ->createQuery('a')
-      ->execute();
+    $this->questions = Doctrine::getTable('Question')->createQuery('q')->execute();
   }
 
   public function executeShow(sfWebRequest $request)
   {
-    $this->question = Doctrine::getTable('Question')->find(array($request->getParameter('id')));
-    $this->forward404Unless($this->question);
+    $this->question = $this->getRoute()->getObject();
+    $answer = new Answer();
+    $answer->question = $this->question->Best->question;
+    $answer->answer = $this->question->Best->answer;
+    $answer->ReplyTo = $this->question->Best;
+    $this->form = new AnswerForm($answer);
   }
 
   public function executeNew(sfWebRequest $request)
@@ -30,8 +32,6 @@ class questionActions extends sfActions
 
   public function executeCreate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST));
-
     $this->form = new QuestionForm();
 
     $this->processForm($request, $this->form);
@@ -41,15 +41,12 @@ class questionActions extends sfActions
 
   public function executeEdit(sfWebRequest $request)
   {
-    $this->forward404Unless($question = Doctrine::getTable('Question')->find(array($request->getParameter('id'))), sprintf('Object question does not exist (%s).', $request->getParameter('id')));
-    $this->form = new QuestionForm($question);
+    $this->form = new QuestionForm($this->getRoute()->getObject());
   }
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod(sfRequest::POST) || $request->isMethod(sfRequest::PUT));
-    $this->forward404Unless($question = Doctrine::getTable('Question')->find(array($request->getParameter('id'))), sprintf('Object question does not exist (%s).', $request->getParameter('id')));
-    $this->form = new QuestionForm($question);
+    $this->form = new QuestionForm($this->getRoute()->getObject());
 
     $this->processForm($request, $this->form);
 
@@ -60,10 +57,9 @@ class questionActions extends sfActions
   {
     $request->checkCSRFProtection();
 
-    $this->forward404Unless($question = Doctrine::getTable('Question')->find(array($request->getParameter('id'))), sprintf('Object question does not exist (%s).', $request->getParameter('id')));
-    $question->delete();
+    $this->getRoute()->getObject()->delete();
 
-    $this->redirect('question/index');
+    $this->redirect('@question');
   }
 
   protected function processForm(sfWebRequest $request, sfForm $form)
@@ -73,7 +69,7 @@ class questionActions extends sfActions
     {
       $question = $form->save();
 
-      $this->redirect('question/show?id='.$question->getId());
+      $this->redirect('question_show',$question);
     }
   }
 }

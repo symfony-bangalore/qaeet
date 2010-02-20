@@ -13,12 +13,17 @@ default:
     #robots:       index, follow
 
   stylesheets:
-    - reset-fonts-grids.css
+    - grids.css
     - bluetrip/css/screen.css
     - bluetrip/css/style.css
+    - ul.nested.css
+    - /sfDoctrineApplyPlugin/css/login-apply.css
     - main.css
 
-  javascripts:    []
+  javascripts:
+    - jquery-1.4.1.min.js
+    - jquery.textarearesizer.compressed.js
+    - main.js
 
   has_layout:     true
   layout:         layout

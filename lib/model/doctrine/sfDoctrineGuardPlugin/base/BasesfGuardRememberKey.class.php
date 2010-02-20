@@ -22,7 +22,7 @@
  * @method sfGuardRememberKey setIpAddress()    Sets the current record's "ip_address" value
  * @method sfGuardRememberKey setSfGuardUser()  Sets the current record's "sfGuardUser" value
  * 
- * @package    qaeet
+ * @package    qa
  * @subpackage model
  * @author     Your name here
  * @version    SVN: $Id: Builder.php 7021 2010-01-12 20:39:49Z lsmith $

@@ -1,5 +1,3 @@
-<?php slot('title', sprintf('%s', $question->getTitle())) ?>
+<?php slot('title', 'Your Answer') ?>
 
-<h2>Add Answer</h2>
-
-<?php include_partial('form', array('form' => $form)) ?>
+<?php include_partial('answer/form', array('form' => $form)) ?>

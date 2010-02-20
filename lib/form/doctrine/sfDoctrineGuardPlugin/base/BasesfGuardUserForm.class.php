@@ -5,7 +5,7 @@
  *
  * @method sfGuardUser getObject() Returns the current form's model object
  *
- * @package    qaeet
+ * @package    qa
  * @subpackage form
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $

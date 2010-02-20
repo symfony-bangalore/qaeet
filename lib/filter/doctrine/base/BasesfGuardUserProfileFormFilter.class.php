@@ -3,7 +3,7 @@
 /**
  * sfGuardUserProfile filter form base class.
  *
- * @package    qaeet
+ * @package    qa
  * @subpackage filter
  * @author     Your name here
  * @version    SVN: $Id: sfDoctrineFormFilterGeneratedTemplate.php 24171 2009-11-19 16:37:50Z Kris.Wallsmith $
